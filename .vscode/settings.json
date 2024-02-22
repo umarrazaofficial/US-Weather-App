@@ -1,0 +1,51 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#3498db", // Blue color for status bar background
+    "statusBar.foreground": "#ffffff", // White color for status bar text
+    "statusBarItem.hoverBackground": "#2980b9", // Darker blue color for hover
+    "titleBar.activeBackground": "#3498db", // Blue color for active title bar
+    "titleBar.activeForeground": "#ffffff", // White color for active title bar text
+    "titleBar.inactiveBackground": "#3498db99", // Lighter blue color for inactive title bar
+    "titleBar.inactiveForeground": "#ffffff99", // Lighter white color for inactive title bar text
+    "activityBar.activeBackground": "#ffffff", // Lighter blue color for active activity bar
+    "activityBar.activeBorder": "#000000", // Border color for active activity bar
+    "activityBar.background": "#5fa3db", // Lighter blue color for activity bar
+    "activityBar.foreground": "#5fa3db", // White color for activity bar text
+    "activityBar.inactiveForeground": "#ffffff99", // Lighter white color for inactive activity bar text
+    "activityBarBadge.background": "#ffffff", // Lighter blue color for activity bar badge
+    "activityBarBadge.foreground": "#5fa3db", // White color for activity bar badge text
+    "sash.hoverBorder": "#5fa3db", // Lighter blue color for hover border
+    "statusBarItem.remoteBackground": "#3498db", // Blue color for remote status bar item
+    "statusBarItem.remoteForeground": "#ffffff", // White color for remote status bar item text
+    "commandCenter.border": "#ffffff99" // Lighter white color for command center border
+  },
+  "prettier.requireConfig": true,
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 120,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.associations": {
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": null,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

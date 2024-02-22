@@ -6,6 +6,28 @@
   height: 40vmin;
   pointer-events: none;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.card{
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.card-img-top{
+  overflow: 'hidden';
+  transition: transform 0.3s;
+}
+.card-body{
+  padding-top: 30px;
+}
+.card-img-top:hover{
+  overflow: hidden;
+  transform: scale(1.2);
+}
+.Toastify__toast-body {
+  font-family: 'poppins', sans-serif;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
