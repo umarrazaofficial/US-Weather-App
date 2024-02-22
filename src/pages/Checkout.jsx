@@ -52,7 +52,7 @@ const Checkout = (props) => {
             alert('Please fill in all the fields.');
         } else {
             try {
-                axios.post('http://localhost:8000/api/addOrder', details)
+                axios.post('https://us-store-backend.vercel.app/api/addOrder', details)
                 console.log('Form submitted:', details);
                 navigate('/thankyou');
             } catch {

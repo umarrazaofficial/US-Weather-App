@@ -40,7 +40,7 @@ const Productdetails = (props) => {
             try {
                 const authObject = JSON.parse(auth);
                 setAdmin(authObject.isAdmin)
-                const response = await axios.get(`http://localhost:8000/api/getProduct/${Id}`);
+                const response = await axios.get(`https://us-store-backend.vercel.app/api/getProduct/${Id}`);
                 setProduct({
                     title: response.data.title,
                     description: response.data.description,

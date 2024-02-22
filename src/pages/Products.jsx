@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Products = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000/api/getProducts')
+        axios.get('https://us-store-backend.vercel.app/api/getProducts')
             .then(response => {
                 setProducts(response.data);
             })

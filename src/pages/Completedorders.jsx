@@ -6,7 +6,7 @@ const Completedorders = () => {
     const [orders, setOrders] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/getcompletedorders')
+        axios.get('https://us-store-backend.vercel.app/api/getcompletedorders')
             .then(response => {
                 setOrders(response.data);
             })

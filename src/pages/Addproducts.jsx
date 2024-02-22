@@ -32,7 +32,7 @@ const Addproduct = () => {
         // localStorage.setItem('user',JSON.stringify(state))
 
         try {
-            await axios.post("http://localhost:8000/api/addProduct", formdata);
+            await axios.post("https://us-store-backend.vercel.app/api/addProduct", formdata);
             navigate('/products')
         } catch (error) {
             console.log(error.message)

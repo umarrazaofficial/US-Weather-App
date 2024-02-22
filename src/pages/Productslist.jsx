@@ -8,7 +8,7 @@ const Productslist = () => {
     const { Id } = useParams();
     const [products, setProducts] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000/api/getProducts')
+        axios.get('https://us-store-backend.vercel.app/api/getProducts')
             .then(response => {
                 setProducts(response.data);
             })
@@ -19,7 +19,7 @@ const Productslist = () => {
 
     const deleteProduct = (id) => {
         try {
-            axios.delete(`http://localhost:8000/api/deleteProduct/${id}`);
+            axios.delete(`https://us-store-backend.vercel.app/api/deleteProduct/${id}`);
             toast.success('Image Deleted Successfully. Please Refresh the Page!')
         } catch {
             toast.error('Error Deleting Image!!!')

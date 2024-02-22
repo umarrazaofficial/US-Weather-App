@@ -29,7 +29,7 @@ const Profile = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/api/deleteUser/${id}`);
+    axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
   };
   return (
     <div style={{ display: 'flex', minHeight: '541px' }}>

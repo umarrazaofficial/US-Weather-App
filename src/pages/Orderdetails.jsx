@@ -11,7 +11,7 @@ const Orderdetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/getOrder/${Id}`);
+                const response = await axios.get(`https://us-store-backend.vercel.app/api/getOrder/${Id}`);
                 setDetails(response.data);
                 if (response.data.status == 'pending') {
                     setPending(true);
@@ -33,7 +33,7 @@ const Orderdetails = () => {
 
     const handleStatus = () => {
         try {
-            axios.put(`http://localhost:8000/api/completeOrder/${Id}`);
+            axios.put(`https://us-store-backend.vercel.app/api/completeOrder/${Id}`);
             toast.success('Order Status Updated Successfully');
             navigate('/completedOrders');
         } catch {

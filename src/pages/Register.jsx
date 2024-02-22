@@ -24,7 +24,7 @@ const Signup = () => {
     // localStorage.setItem('user',JSON.stringify(state))
 
     try {
-      const response = await axios.post("http://localhost:8000/api/createuser", state);
+      const response = await axios.post("https://us-store-backend.vercel.app/api/createuser", state);
       if (response.data.name) {
         localStorage.setItem('user', JSON.stringify({ email: response.data.email, password: response.data.password, _id: response.data._id, name: response.data.name, isAdmin: response.data.isAdmin }))
         navigate('/');

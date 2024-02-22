@@ -13,7 +13,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/getsingleaccount/${Id}`);
+        const response = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${Id}`);
         setDefaultname(response.data?.name);
         setDefaultemail(response.data?.email);
         setDefaultpassword(response.data?.password);
@@ -30,7 +30,7 @@ const Edit = () => {
   const state = { name: defaultname, email: defaultemail, password: defaultpassword }
   const handleEdit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:8000/api/updateUser/${Id}`, state)
+    axios.put(`https://us-store-backend.vercel.app/api/updateUser/${Id}`, state)
     navigate("/user");
   };
   return (

@@ -24,7 +24,7 @@ const Editproduct = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/getProduct/${Id}`);
+                const response = await axios.get(`https://us-store-backend.vercel.app/api/getProduct/${Id}`);
                 setProduct({
                     title: response.data.title,
                     description: response.data.description,
@@ -52,7 +52,7 @@ const Editproduct = () => {
         // localStorage.setItem('user',JSON.stringify(state))
 
         try {
-            await axios.put(`http://localhost:8000/api/updateProduct/${Id}`, formdata, { headers: { 'Content-Type': "multipart/form-data" } });
+            await axios.put(`https://us-store-backend.vercel.app/api/updateProduct/${Id}`, formdata, { headers: { 'Content-Type': "multipart/form-data" } });
             navigate('/productsList')
         } catch (error) {
             console.log(error.message)

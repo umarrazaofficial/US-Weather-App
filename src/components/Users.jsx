@@ -9,7 +9,7 @@ const Users = () => {
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:8000/api/deleteUser/${id}`);
+      const res = await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
       toast.success('User Deleted Successfully. Please Refresh the Page', { position: 'top-center' })
     } catch (error) {
       console.log(error.message)
@@ -20,7 +20,7 @@ const Users = () => {
   };
   const [users, setUsers] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:8000/api/getUser')
+    axios.get('https://us-store-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);
       })
