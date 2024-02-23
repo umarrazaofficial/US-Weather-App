@@ -74,6 +74,19 @@ body {
       flex-direction: column;
       gap: 15px;
      }
+    .add-product-section {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .add-product-div-1 {
+      display: none !important;
+    }
+    .add-product-div-2 {
+      width: 100% !important;
+      display: flex;
+      justify-content: center !important;
+      align-items: center !important;
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
