@@ -33,11 +33,11 @@ const Profile = () => {
     axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', width: '50%' }}>
+    <div style={{ display: 'flex', minHeight: '541px' }} className='profile-section'>
+      <div style={{ display: 'flex', alignItems: 'center', width: '50%' }} className='profile-div-1'>
         <img src={accountSetting} style={{ width: '100%' }} />
       </div>
-      <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
+      <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
         <h2>Account Setting</h2>
         <div class="col-md-8">
           <label for="inputname4" class="form-label">
@@ -80,7 +80,7 @@ const Profile = () => {
         </div>
 
 
-        <div class="col-8">
+        <div class="col-8" className='login-buttons'>
           <Link to={
             `/edit/${id}`
           }

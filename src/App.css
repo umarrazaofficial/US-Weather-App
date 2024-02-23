@@ -46,7 +46,7 @@ body {
       padding-right: 30px;
     }
     .login-div-1{
-      display: none;
+      display: none !important;
     }
     .login-div-2{
       width: 100% !important;
@@ -54,6 +54,26 @@ body {
       justify-content: center !important;
       align-items: center !important;
     }
+     .profile-section {
+       padding-left: 30px;
+       padding-right: 30px;
+     }
+
+     .profile-div-1 {
+       display: none !important;
+     }
+
+     .profile-div-2 {
+       width: 100% !important;
+       display: flex;
+       justify-content: center !important;
+       align-items: center !important;
+     }
+     .login-buttons{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+     }
 }
 
 @media (prefers-reduced-motion: no-preference) {
