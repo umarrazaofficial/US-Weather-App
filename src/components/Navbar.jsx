@@ -38,20 +38,21 @@ const Navbar = (props) => {
 
           <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#2B6356" }} data-bs-theme="dark">
             <div className="container-fluid">
-              <Link className="navbar-brand" to="/" style={{ marginRight: "50px" }}>
-                US-Store
-              </Link>
               <button
                 className="navbar-toggler"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                onClick={() => {
+                  console.log('Button clicked');
+                  document.getElementById('navbarSupportedContent').classList.toggle('show');
+                }}
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
+              <Link className="navbar-brand" to="/" style={{ marginRight: "50px" }}>
+                US-Store
+              </Link>
+
+
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 {admin ? <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
@@ -138,17 +139,6 @@ const Navbar = (props) => {
                   <PersonIcon />
                   {user?.name && user?.name}
                 </Link>
-                <button
-                  className="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span className="navbar-toggler-icon"></span>
-                </button>
               </div>
             </div>
           </nav>

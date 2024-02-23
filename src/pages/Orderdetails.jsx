@@ -77,8 +77,6 @@ const Orderdetails = () => {
                                                             <div style={{ width: '80px' }}>
                                                                 <h5 class="mb-0">${data?.productId?.price}</h5>
                                                             </div>
-
-                                                            <a href="#!" style={{ color: '#cecece' }}><i class="fas fa-trash-alt"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
