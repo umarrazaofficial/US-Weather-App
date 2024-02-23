@@ -42,7 +42,6 @@ const Navbar = (props) => {
                 className="navbar-toggler"
                 type="button"
                 onClick={() => {
-                  console.log('Button clicked');
                   document.getElementById('navbarSupportedContent').classList.toggle('show');
                 }}
               >
@@ -152,11 +151,10 @@ const Navbar = (props) => {
               <button
                 className="navbar-toggler"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                onClick={() => {
+                  console.log('Button clicked');
+                  document.getElementById('navbarSupportedContent').classList.toggle('show');
+                }}
               >
                 <span className="navbar-toggler-icon"></span>
               </button>

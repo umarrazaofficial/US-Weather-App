@@ -37,56 +37,28 @@ body {
   .product-details-div-1{
     width: 100% !important;
   }
-    .product-details-div-2 {
-      margin-top: 20px;
-      width: 100% !important;
-    }
-    .login-section{
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    .login-div-1{
-      display: none !important;
-    }
-    .login-div-2{
-      width: 100% !important;
-      display: flex;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-     .profile-section {
-       padding-left: 30px;
-       padding-right: 30px;
-     }
-
-     .profile-div-1 {
-       display: none !important;
-     }
-
-     .profile-div-2 {
-       width: 100% !important;
-       display: flex;
-       justify-content: center !important;
-       align-items: center !important;
-     }
-     .login-buttons{
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-     }
-    .add-product-section {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    .add-product-div-1 {
-      display: none !important;
-    }
-    .add-product-div-2 {
-      width: 100% !important;
-      display: flex;
-      justify-content: center !important;
-      align-items: center !important;
-    }
+  .product-details-div-2 {
+    margin-top: 20px;
+    width: 100% !important;
+  }
+   .login-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   }
+  .add-product-section, .register-section, .profile-section, .login-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .add-product-div-1, .register-div-1, .profile-div-1, .login-div-1 {
+    display: none !important;
+  }
+  .add-product-div-2, .register-div-2, .profile-div-2, .login-div-2 {
+    width: 100% !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

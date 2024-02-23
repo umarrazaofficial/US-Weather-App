@@ -38,11 +38,11 @@ const Signup = () => {
     }
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }}>
-      <div style={{ width: '50%' }}>
+    <div style={{ display: 'flex', minHeight: '541px' }} className="register-section">
+      <div style={{ width: '50%' }} className="register-div-1">
         <img src={Registration} style={{ width: '95%' }} />
       </div>
-      <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
+      <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className="register-div-2">
         <h1>Register</h1>
         <form class="row g-3" onSubmit={handleSubmit}>
           <div class="col-md-8">
