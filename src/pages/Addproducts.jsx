@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import addProduct from "../assets/addproduct.jpg"
 
 const Addproduct = () => {
     const [title, setTitle] = useState("");
@@ -39,9 +40,9 @@ const Addproduct = () => {
         }
     };
     return (
-        <div style={{ display: 'flex', minHeight: '541px' }}>
+        <div style={{ display: 'flex',alignItems:"center", minHeight: '541px' }}>
             <div style={{ width: '50%' }}>
-                <img draggable='false' src='https://www.ideanation.id/wp-content/uploads/2022/08/Jasa-Deskrispsi-Produk-untuk-Toko-Online-dan-Marketplace-e1562767786675.jpg' style={{ width: '85%' }} />
+                <img draggable='false' src={addProduct} style={{ width: '85%' }} />
             </div>
             <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px', padding: '40px 0px' }}>
                 <h1>Add Product</h1>

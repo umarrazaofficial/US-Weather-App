@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import accountSetting from "../assets/accountSetting.jpeg"
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -34,7 +35,7 @@ const Profile = () => {
   return (
     <div style={{ display: 'flex', minHeight: '541px' }}>
       <div style={{ display: 'flex', alignItems: 'center', width: '50%' }}>
-        <img src='https://www.exchangedefender.com/blog/wp-content/uploads/2023/04/AdobeStock_241656039-1024x725.jpeg' style={{ width: '100%' }} />
+        <img src={accountSetting} style={{ width: '100%' }} />
       </div>
       <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
         <h2>Account Setting</h2>

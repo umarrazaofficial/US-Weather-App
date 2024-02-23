@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
+import loginPage from "../assets/loginpage.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ const Login = () => {
   return (
     <div style={{ display: 'flex', minHeight: '541px' }}>
       <div style={{ width: '50%' }}>
-        <img draggable='false' src='https://junior-shahucollegelatur.org.in/screening-test/public/assets/img/register/login-still.jpg' style={{ width: '80%' }} />
+        <img draggable='false' src={loginPage} style={{ width: '80%' }} />
       </div>
       <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
         <h1>Log In</h1>

@@ -3,16 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import { toast } from "react-toastify";
+import Loading from "./loading";
 
 const Users = () => {
-
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
       toast.success('User Deleted Successfully. Please Refresh the Page', { position: 'top-center' })
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
 
 
@@ -23,6 +24,7 @@ const Users = () => {
     axios.get('https://us-store-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
@@ -41,7 +43,6 @@ const Users = () => {
     //   });
 
   }
-
   return (
     <div className="container " style={{ marginTop: "20px", marginBottom: '40px', minHeight: '481px' }}>
       <div
@@ -73,8 +74,12 @@ const Users = () => {
           </tr>
         </thead>
 
-        <tbody>
-          {/* .filter((item) => {
+        {loading ?
+          <Loading />
+
+          :
+          <tbody>
+            {/* .filter((item) => {
               return (
                 (search.toLowerCase() === ""
                   ? item
@@ -87,33 +92,39 @@ const Users = () => {
                   : item.email.toLowerCase().includes(search))
               );
             }) */}
-          {users?.map((user, index) => (
-            <tr key={index}>
-              <td>{user?.name}</td>
-              <td>{user?.email}</td>
-              <td>{user?.password}</td>
-              <td>
-                <Link to={{
-                  pathname: `/edit/${user._id}`,
-                  state: {
-                    name: `${user?.name}`,
-                    email: `${user?.email}`,
-                    password: `${user?.password}`
-                  },
-                }}
-                  className="btn btn-sm btn-primary">
-                  Edit
-                </Link>
-                <Link
-                  onClick={() => handleDelete(user._id)}
-                  className="btn btn-sm btn-danger ms-2"
-                >
-                  Delete
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+
+            <>
+              {users?.map((user, index) => (
+                <tr key={index}>
+                  <td>{user?.name}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.password}</td>
+                  <td>
+                    <Link to={{
+                      pathname: `/edit/${user._id}`,
+                      state: {
+                        name: `${user?.name}`,
+                        email: `${user?.email}`,
+                        password: `${user?.password}`
+                      },
+                    }}
+                      className="btn btn-sm btn-primary">
+                      Edit
+                    </Link>
+                    <Link
+                      onClick={() => handleDelete(user._id)}
+                      className="btn btn-sm btn-danger ms-2"
+                    >
+                      Delete
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </>
+
+
+          </tbody>
+        }
       </table>
     </div>
   );

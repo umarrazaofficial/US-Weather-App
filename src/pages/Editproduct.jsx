@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import SaveIcon from '@mui/icons-material/Save';
+import editProduct from "../assets/editproduct.jpg";
 
 const Editproduct = () => {
     const { Id } = useParams();
@@ -61,7 +62,7 @@ const Editproduct = () => {
     return (
         <div style={{ display: 'flex', minHeight: '541px' }}>
             <div style={{ width: '50%', display: 'flex', alignItems: 'center' }}>
-                <img draggable='false' src='https://www.softactivity.com/wp-content/uploads/334-1400.jpg' style={{ width: '85%' }} />
+                <img draggable='false' src={editProduct} style={{ width: '85%' }} />
             </div>
             <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px', padding: '40px 0px' }}>
                 <h1>Edit Product</h1>
