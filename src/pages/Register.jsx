@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import Registration from "../assets/registration.jpg";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -39,7 +40,7 @@ const Signup = () => {
   return (
     <div style={{ display: 'flex', minHeight: '541px' }}>
       <div style={{ width: '50%' }}>
-        <img src='https://geelymyanmar.com/PortalAdministration/assets/img/registration.jpg' style={{ width: '95%' }} />
+        <img src={Registration} style={{ width: '95%' }} />
       </div>
       <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
         <h1>Register</h1>
