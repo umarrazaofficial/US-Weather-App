@@ -34,6 +34,11 @@ body {
   .product-details-section{
     flex-direction: column !important;
   }
+  .checkout-section {
+  flex-direction: column !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
   .product-details-div-1{
     width: 100% !important;
   }

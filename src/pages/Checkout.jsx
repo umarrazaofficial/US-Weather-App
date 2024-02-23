@@ -60,10 +60,9 @@ const Checkout = (props) => {
             }
         }
     }
-    console.log(details)
     return (
         <div style={{ marginTop: '50px' }}>
-            <form style={{ width: '100%', display: 'flex', justifyContent: 'space-evenly' }} onSubmit={handlesubmit}>
+            <form style={{ width: '100%', display: 'flex', justifyContent: 'space-evenly' }} onSubmit={handlesubmit} className='checkout-section'>
                 <div class="col-md-6 mb-4">
                     <div class="card mb-4">
                         <div class="card-header py-3">
