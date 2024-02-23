@@ -60,15 +60,15 @@ const Productdetails = (props) => {
         fetchData();
     }, []);
     return (
-        <div style={{ minHeight: '300px', display: 'flex', alignItems: 'center', margin: '93px 50px' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', width: '50%' }}>
+        <div style={{ minHeight: '300px', display: 'flex', alignItems: 'center', margin: '93px 50px' }} className='product-details-section'>
+            <div style={{ display: 'flex', justifyContent: 'center', width: '50%' }} className='product-details-div-1'>
                 <img src={product?.image} style={{ width: '70%' }} />
             </div>
             {loading ?
                 <Loading />
                 :
                 <>
-                    <div style={{ width: '50%' }}>
+                    <div style={{ width: '50%' }} className='product-details-div-2'>
                         <h2 class="card-title">{product?.title}</h2>
                         <br />
                         <h3 class="card-title">${product?.price}</h3>

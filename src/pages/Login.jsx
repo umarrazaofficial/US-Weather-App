@@ -28,11 +28,11 @@ const Login = () => {
     }
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }}>
-      <div style={{ width: '50%' }}>
+    <div style={{ display: 'flex', minHeight: '541px' }} className='login-section'>
+      <div style={{ width: '50%' }} className='login-div-1'>
         <img draggable='false' src={loginPage} style={{ width: '80%' }} />
       </div>
-      <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
+      <div className='login-div-2' style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }}>
         <h1>Log In</h1>
         <form class="row g-3" onSubmit={handleSubmit}>
 

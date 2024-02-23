@@ -29,6 +29,33 @@ body {
   font-family: 'poppins', sans-serif;
 }
 
+@media only screen and (max-width: 500px)
+{
+  .product-details-section{
+    flex-direction: column !important;
+  }
+  .product-details-div-1{
+    width: 100% !important;
+  }
+    .product-details-div-2 {
+      margin-top: 20px;
+      width: 100% !important;
+    }
+    .login-section{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .login-div-1{
+      display: none;
+    }
+    .login-div-2{
+      width: 100% !important;
+      display: flex;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
