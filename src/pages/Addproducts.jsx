@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import addProduct from "../assets/addproduct.jpg"
+import addProduct from "../assets/addproduct.png"
 
 const Addproduct = () => {
     const [title, setTitle] = useState("");
