@@ -7,6 +7,7 @@ import Loading from "./loading";
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
@@ -17,7 +18,7 @@ const Users = () => {
     }
 
 
-    // dispatch(deleteUser({ _id: id }));
+
   };
   const [users, setUsers] = useState([])
   useEffect(() => {
@@ -31,18 +32,6 @@ const Users = () => {
       });
   }, [])
 
-  const handleSearch = (e) => {
-    let key = e;
-    // axios.get(`http://localhost:5000/find/${key}`)
-    //   .then(response => {
-    //     // console.log(response.data);
-    //     setUsers(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching data: ', error);
-    //   });
-
-  }
   return (
     <div className="container " style={{ marginTop: "20px", marginBottom: '40px', minHeight: '481px' }}>
       <div
@@ -61,7 +50,7 @@ const Users = () => {
           placeholder="Search"
           aria-label="Search"
           style={{ width: "30%" }}
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <table className="table">
@@ -74,27 +63,22 @@ const Users = () => {
           </tr>
         </thead>
 
-        {loading ?
-          <Loading />
 
-          :
-          <tbody>
-            {/* .filter((item) => {
-              return (
-                (search.toLowerCase() === ""
-                  ? item
-                  : item.name.toLowerCase().includes(search)) ||
-                (search.toLowerCase() === ""
-                  ? item
-                  : item.number.includes(search)) ||
-                (search.toLowerCase() === ""
-                  ? item
-                  : item.email.toLowerCase().includes(search))
-              );
-            }) */}
+        <tbody>
+
+          {loading ?
+            <Loading />
+
+            :
 
             <>
-              {users?.map((user, index) => (
+              {users?.filter((user) => {
+                return (
+                  (search.toLowerCase() === "" ||
+                    (user.name && user.name.toLowerCase().includes(search)) ||
+                    (user.email && user.email.toLowerCase().includes(search)))
+                );
+              }).map((user, index) => (
                 <tr key={index}>
                   <td>{user?.name}</td>
                   <td>{user?.email}</td>
@@ -121,10 +105,11 @@ const Users = () => {
                 </tr>
               ))}
             </>
+          }
 
 
-          </tbody>
-        }
+        </tbody>
+
       </table>
     </div>
   );

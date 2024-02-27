@@ -5,6 +5,7 @@ import Loading from '../components/loading';
 
 const Completedorders = () => {
     const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState("");
     const [orders, setOrders] = useState();
 
     useEffect(() => {
@@ -30,13 +31,31 @@ const Completedorders = () => {
                                 <table className="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" className="h4">Completed Orders List</th>
+                                            <th scope="col" className="h4" style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
+                                                Completed Orders List
+                                                <input
+                                                    class="form-control my-3"
+                                                    type="search"
+                                                    placeholder="Search"
+                                                    aria-label="Search"
+                                                    style={{ width: "30%" }}
+                                                    onChange={(e) => setSearch(e.target.value)}
+                                                />
+                                            </th>
                                             {/* <th scope="col" >Quantity</th>
                                         <th scope="col">Price</th> */}
                                         </tr>
                                     </thead>
                                 </table>
-                                {orders?.map((data, index) => {
+                                {orders?.filter((data) => {
+                                    return (
+                                        (search.toLowerCase() === "" ||
+                                            (data?.firstName && data?.firstName.toLowerCase().includes(search.toLowerCase())) ||
+                                            (data?.lastName && data?.lastName.toLowerCase().includes(search.toLowerCase())) ||
+                                            (data?.phone && data?.phone.toLowerCase().includes(search)) ||
+                                            (data?.address && data?.address.toLowerCase().includes(search.toLowerCase())))
+                                    );
+                                }).map((data, index) => {
                                     let totalPrice = 0;
                                     for (let index = 0; index < data?.products?.length; index++) {
                                         let price = 0;

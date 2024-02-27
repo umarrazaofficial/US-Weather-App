@@ -21,15 +21,14 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     // localStorage.setItem('user',JSON.stringify(state))
 
     try {
       const response = await axios.post("https://us-store-backend.vercel.app/api/createuser", state);
       if (response.data.name) {
         localStorage.setItem('user', JSON.stringify({ email: response.data.email, password: response.data.password, _id: response.data._id, name: response.data.name, isAdmin: response.data.isAdmin }))
-        navigate('/');
-        toast.success('Account Created Successfully. Please Refresh the Page', { position: 'top-center' })
+        navigate('/thankforsignup');
+        window.location.reload(true);
       } else {
         alert("Invalid Email or Password")
       }
@@ -40,7 +39,7 @@ const Signup = () => {
   return (
     <div style={{ display: 'flex', minHeight: '541px' }} className="register-section">
       <div style={{ width: '50%' }} className="register-div-1">
-        <img src={Registration} style={{ width: '95%' }} />
+        <img src={Registration} style={{ width: '95%' }} draggable="false" />
       </div>
       <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className="register-div-2">
         <h1>Register</h1>
@@ -67,6 +66,8 @@ const Signup = () => {
               class="form-control"
               id="inputemail4"
               placeholder="Enter Your Email:"
+              title="Please enter a valid email address"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -80,6 +81,9 @@ const Signup = () => {
               class="form-control"
               id="inputpassword4"
               placeholder="Enter Your Password:"
+              minLength="8"
+              maxLength="20"
+              title="Password must be between 8 and 20 characters"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -87,7 +91,7 @@ const Signup = () => {
 
 
           <div class="col-8">
-            <button type="submit" class="btn btn-primary" style={{ display: 'flex', alignItems: 'center' }}>
+            <button type="submit" class="btn btn-success" style={{ display: 'flex', alignItems: 'center' }}>
               <HowToRegIcon style={{ fontSize: 22, marginRight: '3px' }} />
               Create Account
             </button>

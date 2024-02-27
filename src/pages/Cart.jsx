@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import cardItems from "../services/reducers/reducers";
-import CancelIcon from '@mui/icons-material/Cancel';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { removefromCart } from '../services/actions/actions';
 import { Link } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ const Cart = (props) => {
                                                     <p class="mb-0" style={{ fontWeight: '500' }}>${data?.cardData?.price}</p>
                                                 </td>
                                                 <td class="align-middle border-bottom-0" onClick={() => props.removefromCartHandler(index)}>
-                                                    <CancelIcon style={{ color: 'red', cursor: 'pointer' }} />
+                                                    <DeleteIcon style={{ color: 'red', cursor: 'pointer' }} />
                                                 </td>
                                             </tr>
                                         ))}

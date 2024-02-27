@@ -24,6 +24,7 @@ import Orders from './pages/Orders';
 import Orderdetails from './pages/Orderdetails';
 import Completedorders from './pages/Completedorders';
 import Aboutus from './pages/Aboutus';
+import Thankforsignup from './components/Thankforsignup';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/profile" element={<Profile />}/>
         <Route path="/thankyou" element={<Thankyou />}/>
         <Route path="/products" element={<Products />}/>
+        <Route path="/thankforsignup" element={<Thankforsignup />}/>
         <Route path='/checkout' element={<Checkout />} />
         <Route path="/addProduct" element={<Addproduct />}/>
         <Route path="/productsList" element={<Productslist/>}/>
@@ -52,6 +54,7 @@ function App() {
         <Route path="/orders" element={<Orders />}/>
         </Route>
         <Route path="/register" element={<Register />}/>
+        <Route path="/thankforsignup" element={<Thankforsignup />}/>
         <Route path="/login" element={<Login />}/>
       </Routes>
     <Footer />

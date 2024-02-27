@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,6 +11,7 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [id, setId] = useState('');
+  const navigate = useNavigate();
 
   const auth = localStorage.getItem('user');
 
@@ -29,8 +30,10 @@ const Profile = () => {
     fetchData();
   }, []);
 
-  const handleDelete = (id) => {
-    axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
+  const handleDelete = async (id) => {
+    await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
+    navigate('/');
+    window.location.reload(true);
   };
   return (
     <div style={{ display: 'flex', minHeight: '541px' }} className='profile-section'>
@@ -92,7 +95,8 @@ const Profile = () => {
             onClick={() => {
               return (
                 handleDelete(id),
-                localStorage.clear('user')
+                localStorage.clear('user'),
+                navigate("/")
               )
             }}
             className="btn btn-danger ms-2"
@@ -103,7 +107,7 @@ const Profile = () => {
 
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

@@ -11,6 +11,7 @@ import Thankyou from '../pages/Thankyou';
 import Login from '../pages/Login';
 import Register from '../pages/Register'
 import Aboutus from '../pages/Aboutus';
+import Thankforsignup from './Thankforsignup';
 
 const Privatecomponent = () => {
   const [admin, setAdmin] = useState('');
@@ -39,11 +40,13 @@ const Privatecomponent = () => {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path="/thankyou" element={<Thankyou />} />
+          <Route path="/thankforsignup" element={<Thankforsignup />} />
         </Routes>
     ) :
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/thankforsignup" element={<Thankforsignup />} />
         <Route path="/" element={<Login />} />
       </Routes>
 

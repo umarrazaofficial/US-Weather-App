@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 const Orderdetails = () => {
@@ -52,8 +52,8 @@ const Orderdetails = () => {
                                 <div class="row">
 
                                     <div class="col-lg-7">
-                                        <h4 class="mb-3"><i
-                                            class="fas fa-long-arrow-alt-left me-2"></i>Product Details</h4>
+                                        <h4 class="mb-3" style={{ display: 'flex' }}>
+                                            <div onClick={() => window.history.back()}><i class="fas fa-long-arrow-alt-left me-2"></i></div>Product Details</h4>
                                         <hr />
                                         {details?.products?.map((data, index) => (
                                             <div class="card mb-3" key={index}>
