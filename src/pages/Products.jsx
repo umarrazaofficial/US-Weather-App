@@ -28,7 +28,7 @@ const Products = () => {
                         <Link to={
                             `/productDetails/${product._id}`} style={{ textDecoration: 'none' }} key={index}>
                             <>
-                                <div class="card" style={{ width: '22rem' }}>
+                                <div class="card" style={{ width: '24rem' }}>
                                     <img class="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
                                     <div class="card-body">
                                         <h5 class="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
