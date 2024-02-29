@@ -21,8 +21,9 @@ const Login = () => {
     event.preventDefault();
     let response = await axios.post("https://us-store-backend.vercel.app/api/login", state);
     if (response.data.name) {
-      localStorage.setItem('user', JSON.stringify({ email: response.data.email, password: response.data.password, _id: response.data._id, name: response.data.name, isAdmin: response.data.isAdmin }))
-      navigate('/')
+      await localStorage.setItem('user', JSON.stringify({ email: response.data.email, password: response.data.password, _id: response.data._id, name: response.data.name, isAdmin: response.data.isAdmin }))
+      await navigate('/')
+      window.location.reload(true);
     } else {
       alert("Invalid Email or Password")
     }
