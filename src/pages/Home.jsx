@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <>
             <Carousel />
-            <div style={{ marginTop: '50px' }}>
+            <div style={{ marginTop: '50px', position: 'relative' }}>
                 <Products />
             </div>
         </>

@@ -1,17 +1,21 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import Loading from '../components/loading';
+import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 const Orderdetails = () => {
+    const [loading, setLoading] = useState(false);
     const { Id } = useParams();
     const [details, setDetails] = useState();
     const [pending, setPending] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const response = await axios.get(`https://us-store-backend.vercel.app/api/getOrder/${Id}`);
+                setLoading(false);
                 setDetails(response.data);
                 if (response.data.status == 'pending') {
                     setPending(true);
@@ -51,38 +55,43 @@ const Orderdetails = () => {
 
                                 <div class="row">
 
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-7" style={{ position: 'relative' }}>
                                         <h4 class="mb-3" style={{ display: 'flex' }}>
                                             <div onClick={() => window.history.back()}><i class="fas fa-long-arrow-alt-left me-2"></i></div>Product Details</h4>
                                         <hr />
-                                        {details?.products?.map((data, index) => (
-                                            <div class="card mb-3" key={index}>
-                                                <div class="card-body">
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="d-flex flex-row align-items-center">
-                                                            <div>
-                                                                <img
-                                                                    src={data?.productId?.image}
-                                                                    class="img-fluid rounded-3" alt="Shopping item" style={{ width: '65px' }} />
-                                                            </div>
-                                                            <div class="ms-3">
-                                                                <h5>{data?.productId?.title?.length > 20 ? data?.productId?.title.substr(0, 19) + "..." : data?.productId?.title}</h5>
-                                                                <p class="small mb-0">256GB, Navy Blue</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="d-flex flex-row align-items-center">
-                                                            <div style={{ width: '50px' }}>
-                                                                <h5 class="fw-normal mb-0">{data?.quantity}</h5>
-                                                            </div>
-                                                            <div style={{ width: '80px' }}>
-                                                                <h5 class="mb-0">${data?.productId?.price}</h5>
+                                        {loading ?
+                                            <Loading />
+                                            :
+                                            <>
+                                                {details?.products?.map((data, index) => (
+                                                    <div class="card mb-3" key={index}>
+                                                        <div class="card-body">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex flex-row align-items-center">
+                                                                    <div>
+                                                                        <img
+                                                                            src={data?.productId?.image}
+                                                                            class="img-fluid rounded-3" alt="Shopping item" style={{ width: '65px' }} />
+                                                                    </div>
+                                                                    <div class="ms-3">
+                                                                        <h5>{data?.productId?.title?.length > 20 ? data?.productId?.title.substr(0, 19) + "..." : data?.productId?.title}</h5>
+                                                                        <p class="small mb-0">{data?.productId?.description?.length > 40 ? data?.productId?.description.substr(0, 37) + "..." : data?.productId?.description}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center">
+                                                                    <div style={{ width: '50px' }}>
+                                                                        <h5 class="fw-normal mb-0">{data?.quantity}</h5>
+                                                                    </div>
+                                                                    <div style={{ width: '80px' }}>
+                                                                        <h5 class="mb-0">${data?.productId?.price}</h5>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        ))}
-
+                                                ))}
+                                            </>
+                                        }
                                     </div>
                                     <div class="col-lg-5">
 

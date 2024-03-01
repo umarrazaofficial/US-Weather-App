@@ -161,17 +161,16 @@ const Navbar = (props) => {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <form className="d-flex ms-auto" data-bs-theme="light">
-                  <button className="btn btn-outline-light">
-                    <Link className="nav-link" to="/login">
+                  <Link className="nav-link" to="/login">
+                    <button className="btn btn-outline-light">
                       <LoginIcon style={{ fontSize: 22 }} /> {"  "}Login
-                    </Link>
-                  </button>
-
-                  <button className="btn btn-outline-light" style={{ marginLeft: '10px' }}>
-                    <Link className="nav-link" to="/register">
+                    </button>
+                  </Link>
+                  <Link className="nav-link" to="/register">
+                    <button className="btn btn-outline-light" style={{ marginLeft: '10px' }}>
                       <LoginIcon style={{ fontSize: 22 }} /> {"  "}Sign Up
-                    </Link>
-                  </button>
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>
