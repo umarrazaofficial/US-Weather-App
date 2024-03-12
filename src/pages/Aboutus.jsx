@@ -2,6 +2,7 @@ import React from 'react'
 import Creatorimage from '../assets/creator.png';
 
 const Aboutus = () => {
+
     return (
         <>
             <section>
@@ -19,6 +20,7 @@ const Aboutus = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-lg-12 mb-4 mb-lg-0">

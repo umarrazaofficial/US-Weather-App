@@ -93,7 +93,7 @@ const Profile = () => {
             </div>
 
 
-            <div className="col-8" className='login-buttons'>
+            <div className="col-8">
               <Link to={
                 `/edit/${id}`
               }
