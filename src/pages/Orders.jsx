@@ -35,7 +35,7 @@ const Orders = () => {
                                             <th scope="col" className="h4" style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
                                                 Pending Orders List
                                                 <input
-                                                    class="form-control my-3"
+                                                    className="form-control my-3"
                                                     type="search"
                                                     placeholder="Search"
                                                     aria-label="Search"
@@ -62,8 +62,8 @@ const Orders = () => {
                                         totalPrice += price;
                                     }
                                     return (
-                                        <>
-                                            <div className="card shadow-2-strong mb-5 mb-lg-0" style={{ borderRadius: '16px', margin: '20px 0px' }} key={index}>
+                                        <div key={index}>
+                                            <div className="card shadow-2-strong mb-5 mb-lg-0" style={{ borderRadius: '16px', margin: '20px 0px' }}>
                                                 <div className="card-body p-4">
 
                                                     <div className="row" style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -71,28 +71,28 @@ const Orders = () => {
                                                             <div className="row">
                                                                 <div className="col-12 col-xl-6">
                                                                     <div className="form-outline mb-4 mb-xl-5">
-                                                                        <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>First Name:</label>
+                                                                        <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>First Name:</label>
                                                                         <br />
-                                                                        <label className="form-label" for="typeName" style={{ textTransform: 'capitalize' }}>{data?.firstName}</label>
+                                                                        <label className="form-label" htmlFor="typeName" style={{ textTransform: 'capitalize' }}>{data?.firstName}</label>
                                                                     </div>
 
                                                                     <div className="form-outline mb-4 mb-xl-5">
-                                                                        <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Last Name:</label>
+                                                                        <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Last Name:</label>
                                                                         <br />
-                                                                        <label className="form-label" for="typeExp" style={{ textTransform: 'capitalize' }}>{data?.lastName}</label>
+                                                                        <label className="form-label" htmlFor="typeExp" style={{ textTransform: 'capitalize' }}>{data?.lastName}</label>
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12 col-xl-6">
                                                                     <div className="form-outline mb-4 mb-xl-5">
-                                                                        <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Address:</label>
+                                                                        <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Address:</label>
                                                                         <br />
-                                                                        <label className="form-label" for="typeText">{data?.address}</label>
+                                                                        <label className="form-label" htmlFor="typeText">{data?.address}</label>
                                                                     </div>
 
                                                                     <div className="form-outline mb-4 mb-xl-5">
-                                                                        <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Phone Number:</label>
+                                                                        <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Phone Number:</label>
                                                                         <br />
-                                                                        <label className="form-label" for="typeText">{data?.phone}</label>
+                                                                        <label className="form-label" htmlFor="typeText">{data?.phone}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -129,7 +129,7 @@ const Orders = () => {
                                                 </div>
                                             </div>
 
-                                        </>
+                                        </div>
                                     )
                                 })}
 

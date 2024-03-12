@@ -28,13 +28,13 @@ const Products = () => {
                         <Link to={
                             `/productDetails/${product._id}`} style={{ textDecoration: 'none' }} key={index}>
                             <>
-                                <div class="card" style={{ width: '24rem' }}>
-                                    <img class="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
-                                        <h6 class="card-title">${product?.price}</h6>
-                                        <p class="card-text">{product?.description?.length > 100 ? product?.description.substr(0, 90) + ' ... ' : product.description}</p>
-                                        <a href="#" class="btn btn-success" >View Details</a>
+                                <div className="card" style={{ width: '24rem' }}>
+                                    <img className="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
+                                        <h6 className="card-title">${product?.price}</h6>
+                                        <p className="card-text">{product?.description?.length > 100 ? product?.description.substr(0, 90) + ' ... ' : product.description}</p>
+                                        <button className="btn btn-success" >View Details</button>
                                     </div>
                                 </div>
                             </>

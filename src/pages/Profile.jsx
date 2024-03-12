@@ -52,39 +52,39 @@ const Profile = () => {
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Account Setting</h2>
-            <div class="col-md-8">
-              <label for="inputname4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputname4" className="form-label">
                 Name
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputname4"
                 placeholder="Enter Your Name:"
                 readOnly
                 value={name}
               />
             </div>
-            <div class="col-md-8">
-              <label for="inputemail4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputemail4" className="form-label">
                 Email
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="inputemail4"
                 placeholder="Enter Your Email:"
                 readOnly
                 value={email}
               />
             </div>
-            <div class="col-md-8">
-              <label for="inputpassword4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputpassword4" className="form-label">
                 Password
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputpassword4"
                 placeholder="Enter Your Password:"
                 readOnly
@@ -93,7 +93,7 @@ const Profile = () => {
             </div>
 
 
-            <div class="col-8" className='login-buttons'>
+            <div className="col-8" className='login-buttons'>
               <Link to={
                 `/edit/${id}`
               }

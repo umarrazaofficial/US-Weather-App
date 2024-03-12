@@ -47,7 +47,7 @@ const Users = () => {
           Create User
         </Link>
         <input
-          class="form-control my-3"
+          className="form-control my-3"
           type="search"
           placeholder="Search"
           aria-label="Search"
@@ -66,53 +66,51 @@ const Users = () => {
         </thead>
 
 
-        <tbody>
-
-          {loading ?
-            <Loading />
-
-            :
-
-            <>
-              {users?.filter((user) => {
-                return (
-                  (search.toLowerCase() === "" ||
-                    (user.name && user.name.toLowerCase().includes(search)) ||
-                    (user.email && user.email.toLowerCase().includes(search)))
-                );
-              }).map((user, index) => (
-                <tr key={index}>
-                  <td>{user?.name}</td>
-                  <td>{user?.email}</td>
-                  <td>{user?.password}</td>
-                  <td>
-                    <Link to={{
-                      pathname: `/edit/${user._id}`,
-                      state: {
-                        name: `${user?.name}`,
-                        email: `${user?.email}`,
-                        password: `${user?.password}`
-                      },
-                    }}
-                      className="btn btn-sm btn-success">
-                      <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
-                      Edit
-                    </Link>
-                    <Link
-                      onClick={() => handleDelete(user._id)}
-                      className="btn btn-sm btn-danger ms-2"
-                    >
-                      <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
-                      Delete
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </>
-          }
 
 
-        </tbody>
+        {loading ?
+          <Loading />
+          :
+          <tbody>
+            {users?.filter((user) => {
+              return (
+                (search.toLowerCase() === "" ||
+                  (user.name && user.name.toLowerCase().includes(search)) ||
+                  (user.email && user.email.toLowerCase().includes(search)))
+              );
+            }).map((user, index) => (
+              <tr key={index}>
+                <td>{user?.name}</td>
+                <td>{user?.email}</td>
+                <td>{user?.password}</td>
+                <td>
+                  <Link to={{
+                    pathname: `/edit/${user._id}`,
+                    state: {
+                      name: `${user?.name}`,
+                      email: `${user?.email}`,
+                      password: `${user?.password}`
+                    },
+                  }}
+                    className="btn btn-sm btn-success">
+                    <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
+                    Edit
+                  </Link>
+                  <Link
+                    onClick={() => handleDelete(user._id)}
+                    className="btn btn-sm btn-danger ms-2"
+                  >
+                    <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
+                    Delete
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        }
+
+
+
 
       </table>
     </div>

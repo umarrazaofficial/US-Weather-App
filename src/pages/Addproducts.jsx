@@ -13,13 +13,6 @@ const Addproduct = () => {
 
     const navigate = useNavigate();
 
-    // useEffect(()=>{
-    //   const auth = localStorage.getItem('user');
-    //   if(auth){
-    //       navigate('/')
-    //   }
-    // })
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formdata = new FormData();
@@ -46,53 +39,53 @@ const Addproduct = () => {
             </div>
             <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px', padding: '40px 0px' }} className='add-product-div-2'>
                 <h1>Add Product</h1>
-                <form class="row g-3" onSubmit={handleSubmit}>
-                    <div class="col-md-8">
-                        <label for="inputtitle4" class="form-label">
+                <form className="row g-3" onSubmit={handleSubmit}>
+                    <div className="col-md-8">
+                        <label htmlFor="inputtitle4" className="form-label">
                             Title
                         </label>
                         <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="inputtitle4"
                             placeholder="Enter Title Here:"
                             onChange={(e) => setTitle(e.target.value)}
                             required
                         />
                     </div>
-                    <div class="col-md-8">
-                        <label for="inputdescription4" class="form-label">
+                    <div className="col-md-8">
+                        <label htmlFor="inputdescription4" className="form-label">
                             Description
                         </label>
                         <textarea
-                            class="form-control"
+                            className="form-control"
                             id="inputdescription4"
                             placeholder="Enter Description Here:"
                             onChange={(e) => setDescription(e.target.value)}
                             required
                         />
                     </div>
-                    <div class="col-md-8">
-                        <label for="inputprice4" class="form-label">
+                    <div className="col-md-8">
+                        <label htmlFor="inputprice4" className="form-label">
                             Price
                         </label>
                         <input
                             type="number"
-                            class="form-control"
+                            className="form-control"
                             id="inputprice4"
                             placeholder="Enter Price Here:"
                             onChange={(e) => setPrice(e.target.value)}
                             required
                         />
                     </div>
-                    <div class="col-md-8">
-                        <label for="inputimage4" class="form-label">
+                    <div className="col-md-8">
+                        <label htmlFor="inputimage4" className="form-label">
                             Image
                         </label>
                         <input
                             type="file"
                             name='file'
-                            class="form-control"
+                            className="form-control"
                             id="inputimage4"
                             required
                             onChange={(e) => setImage(e.target.files[0])}
@@ -100,8 +93,8 @@ const Addproduct = () => {
                     </div>
 
 
-                    <div class="col-8">
-                        <button type="submit" value='Upload' class="btn btn-success" style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                    <div className="col-8">
+                        <button type="submit" value='Upload' className="btn btn-success" style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
                             <AddCircleOutlineIcon style={{ fontSize: 22, marginRight: '5px' }} />
                             Add Product
                         </button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Loading from '../components/loading';
+import Loading from './loading';
 import axios from "axios";
 import editProfile from "../assets/Edit-Profile.webp";
 import SaveIcon from '@mui/icons-material/Save';
@@ -49,26 +49,26 @@ const Edit = () => {
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Edit Profile</h2>
-            <div class="col-md-8">
-              <label for="inputname4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputname4" className="form-label">
                 Name
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputname4"
                 placeholder="Enter Your Name:"
                 onChange={(e) => setDefaultname(e.target.value)}
                 value={defaultname}
               />
             </div>
-            <div class="col-md-8">
-              <label for="inputemail4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputemail4" className="form-label">
                 Email
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="inputemail4"
                 placeholder="Enter Your Email:"
                 readOnly
@@ -76,13 +76,13 @@ const Edit = () => {
                 value={defaultemail}
               />
             </div>
-            <div class="col-md-8">
-              <label for="inputpassword4" class="form-label">
+            <div className="col-md-8">
+              <label htmlFor="inputpassword4" className="form-label">
                 Password
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="inputpassword4"
                 placeholder="Enter Your Password:"
                 onChange={(e) => setDefaultpassword(e.target.value)}
@@ -91,7 +91,7 @@ const Edit = () => {
             </div>
 
 
-            <div class="col-8" className='login-buttons'>
+            <div className="col-8" >
               <button
                 className="btn btn-success" onClick={() => { handleEdit() }}>
                 <SaveIcon style={{ fontSize: 22, paddingRight: '3px' }} />
@@ -108,48 +108,48 @@ const Edit = () => {
 
 
     // <div className="container " style={{ marginTop: "100px", minHeight: '481px' }}>
-    //   <form class="row g-3" onSubmit={handleEdit}>
-    //     <div class="col-md-6">
-    //       <label for="inputname4" class="form-label">
+    //   <form className="row g-3" onSubmit={handleEdit}>
+    //     <div className="col-md-6">
+    //       <label for="inputname4" className="form-label">
     //         Name
     //       </label>
     //       <input
     //         type="text"
-    //         class="form-control"
+    //         className="form-control"
     //         id="inputname4"
     //         placeholder="Enter Name:"
     //         onChange={(e) => setDefaultname(e.target.value)}
     //         value={defaultname}
     //       />
     //     </div>
-    //     <div class="col-md-6">
-    //       <label for="inputemail4" class="form-label">
+    //     <div className="col-md-6">
+    //       <label for="inputemail4" className="form-label">
     //         Email
     //       </label>
     //       <input
     //         type="email"
-    //         class="form-control"
+    //         className="form-control"
     //         id="inputemail4"
     //         placeholder="Enter Email:"
     //         onChange={(e) => setDefaultemail(e.target.value)}
     //         value={defaultemail}
     //       />
     //     </div>
-    //     <div class="col-md-6">
-    //       <label for="inputnumber4" class="form-label">
+    //     <div className="col-md-6">
+    //       <label for="inputnumber4" className="form-label">
     //         Password
     //       </label>
     //       <input
     //         type="text"
-    //         class="form-control"
+    //         className="form-control"
     //         id="inputnumber4"
     //         placeholder="Enter Phone Number:"
     //         onChange={(e) => setDefaultpassword(e.target.value)}
     //         value={defaultpassword}
     //       />
     //     </div>
-    //     <div class="col-12">
-    //       <button type="submit" class="btn btn-secondary">
+    //     <div className="col-12">
+    //       <button type="submit" className="btn btn-secondary">
     //         Save Changes
     //       </button>
     //     </div>

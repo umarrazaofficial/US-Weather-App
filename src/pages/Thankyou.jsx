@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Thankyou = () => {
     return (
-        <div class="d-flex justify-content-center align-items-center" style={{ margin: '90px 0px' }}>
-            <div class="col-md-4">
-                <div class="border border-3 border-success"></div>
-                <div class="card  bg-white shadow p-5">
-                    <div class="mb-4 text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
+        <div className="d-flex justify-content-center align-items-center" style={{ margin: '90px 0px' }}>
+            <div className="col-md-4">
+                <div className="border border-3 border-success"></div>
+                <div className="card  bg-white shadow p-5">
+                    <div className="mb-4 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="text-success" width="75" height="75"
                             fill="#198754" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                             <path
@@ -16,10 +16,10 @@ const Thankyou = () => {
                         </svg>
 
                     </div>
-                    <div class="text-center">
+                    <div className="text-center">
                         <h1>Thank You !</h1>
                         <p>Thank You so much for using US-Store. Your order will delivered soon. </p>
-                        <Link to='/'><button class="btn btn-outline-success">Back Home</button></Link>
+                        <Link to='/'><button className="btn btn-outline-success">Back Home</button></Link>
 
                     </div>
                 </div>

@@ -34,7 +34,7 @@ const Completedorders = () => {
                                             <th scope="col" className="h4" style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
                                                 Completed Orders List
                                                 <input
-                                                    class="form-control my-3"
+                                                    className="form-control my-3"
                                                     type="search"
                                                     placeholder="Search"
                                                     aria-label="Search"
@@ -71,28 +71,28 @@ const Completedorders = () => {
                                                         <div className="row">
                                                             <div className="col-12 col-xl-6">
                                                                 <div className="form-outline mb-4 mb-xl-5">
-                                                                    <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>First Name:</label>
+                                                                    <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>First Name:</label>
                                                                     <br />
-                                                                    <label className="form-label" for="typeName" style={{ textTransform: 'capitalize' }}>{data?.firstName}</label>
+                                                                    <label className="form-label" htmlFor="typeName" style={{ textTransform: 'capitalize' }}>{data?.firstName}</label>
                                                                 </div>
 
                                                                 <div className="form-outline mb-4 mb-xl-5">
-                                                                    <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Last Name:</label>
+                                                                    <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Last Name:</label>
                                                                     <br />
-                                                                    <label className="form-label" for="typeExp" style={{ textTransform: 'capitalize' }}>{data?.lastName}</label>
+                                                                    <label className="form-label" htmlFor="typeExp" style={{ textTransform: 'capitalize' }}>{data?.lastName}</label>
                                                                 </div>
                                                             </div>
                                                             <div className="col-12 col-xl-6">
                                                                 <div className="form-outline mb-4 mb-xl-5">
-                                                                    <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Address:</label>
+                                                                    <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Address:</label>
                                                                     <br />
-                                                                    <label className="form-label" for="typeText">{data?.address}</label>
+                                                                    <label className="form-label" htmlFor="typeText">{data?.address}</label>
                                                                 </div>
 
                                                                 <div className="form-outline mb-4 mb-xl-5">
-                                                                    <label className="form-label" for="typeName" style={{ fontWeight: 500 }}>Phone Number:</label>
+                                                                    <label className="form-label" htmlFor="typeName" style={{ fontWeight: 500 }}>Phone Number:</label>
                                                                     <br />
-                                                                    <label className="form-label" for="typeText">{data?.phone}</label>
+                                                                    <label className="form-label" htmlFor="typeText">{data?.phone}</label>
                                                                 </div>
                                                             </div>
                                                         </div>

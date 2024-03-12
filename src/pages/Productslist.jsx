@@ -35,16 +35,16 @@ const Productslist = () => {
                 :
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', paddingTop: '50px', paddingBottom: '50px', gap: '30px' }}>
                     {products?.map((product, index) => (
-                        <div class="card" style={{ width: '22rem' }} key={index}>
-                            <img class="card-img-top" style={{ height: '15rem' }} src={product.image} alt="Card image cap" />
-                            <div class="card-body">
-                                <h5 class="card-title">{product.title}</h5>
-                                <h6 class="card-title">${product.price}</h6>
-                                <p class="card-text">{product.description}</p>
+                        <div className="card" style={{ width: '22rem' }} key={index}>
+                            <img className="card-img-top" style={{ height: '15rem' }} src={product.image} alt="Card image cap" />
+                            <div className="card-body">
+                                <h5 className="card-title">{product.title}</h5>
+                                <h6 className="card-title">${product.price}</h6>
+                                <p className="card-text">{product.description}</p>
                                 <Link to={
                                     `/editProduct/${product._id}`
-                                } class="btn btn-success" style={{ marginRight: '5px' }}>Edit Product</Link>
-                                <button class="btn btn-danger" onClick={() => {
+                                } className="btn btn-success" style={{ marginRight: '5px' }}>Edit Product</Link>
+                                <button className="btn btn-danger" onClick={() => {
                                     deleteProduct(product._id)
                                 }}>Delete Product</button>
                             </div>
