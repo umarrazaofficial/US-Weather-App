@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
-
+::selection{
+  background-color: #2B6356;
+  color: #fff;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

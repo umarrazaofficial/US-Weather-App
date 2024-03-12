@@ -4,6 +4,8 @@ import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import { toast } from "react-toastify";
 import Loading from "./loading";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const Users = () => {
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
+      await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
       toast.success('User Deleted Successfully. Please Refresh the Page', { position: 'top-center' })
     } catch (error) {
       console.log(error.message);
@@ -92,13 +94,15 @@ const Users = () => {
                         password: `${user?.password}`
                       },
                     }}
-                      className="btn btn-sm btn-primary">
+                      className="btn btn-sm btn-success">
+                      <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                       Edit
                     </Link>
                     <Link
                       onClick={() => handleDelete(user._id)}
                       className="btn btn-sm btn-danger ms-2"
                     >
+                      <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                       Delete
                     </Link>
                   </td>

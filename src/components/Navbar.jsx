@@ -36,7 +36,7 @@ const Navbar = (props) => {
       {auth ?
         <>
 
-          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#2B6356" }} data-bs-theme="dark">
+          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#2B6356", height: '65px' }} data-bs-theme="dark">
             <div className="container-fluid">
               <button
                 className="navbar-toggler"

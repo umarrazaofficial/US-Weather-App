@@ -20,10 +20,12 @@ const Profile = () => {
     const fetchData = async () => {
       try {
         const authObject = JSON.parse(auth);
-        setName(authObject.name);
-        setEmail(authObject.email);
-        setPassword(authObject.password);
         setId(authObject._id);
+        const response = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${authObject._id}`);
+        setLoading(false);
+        setName(response.data?.name);
+        setEmail(response.data?.email);
+        setPassword(response.data?.password);
       } catch (error) {
         console.error('Error fetching data: ', error);
       }
