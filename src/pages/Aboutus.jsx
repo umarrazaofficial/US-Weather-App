@@ -21,7 +21,7 @@ const Aboutus = () => {
                 </div>
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col col-lg-10 mb-4 mb-lg-0">
+                        <div class="col col-lg-12 mb-4 mb-lg-0">
                             <div class="card mb-3" style={{ borderRadius: '.5rem' }}>
                                 <div class="row g-0">
                                     <div class="col-md-4 gradient-custom text-center"

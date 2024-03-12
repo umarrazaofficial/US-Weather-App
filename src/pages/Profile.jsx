@@ -46,7 +46,7 @@ const Profile = () => {
         :
         <>
           <div style={{ display: 'flex', alignItems: 'center', width: '50%' }} className='profile-div-1'>
-            <img src={accountSetting} style={{ width: '100%' }} />
+            <img src={accountSetting} style={{ width: '100%' }} draggable="false" />
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Account Setting</h2>
