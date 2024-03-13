@@ -5,6 +5,20 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Loading from '../components/loading';
 import accountSetting from "../assets/accountSetting.jpeg"
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
+};
 
 const Profile = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +27,9 @@ const Profile = () => {
   const [password, setPassword] = useState('');
   const [id, setId] = useState('');
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const auth = localStorage.getItem('user');
 
@@ -101,19 +118,38 @@ const Profile = () => {
                 <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                 Edit Profile
               </Link>
-              <Link
-                onClick={() => {
-                  return (
-                    handleDelete(id),
-                    localStorage.clear('user'),
-                    navigate("/")
-                  )
-                }}
-                className="btn btn-danger ms-2"
-              >
+              <button className="btn btn-danger ms-2" onClick={handleOpen}>
                 <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                 Delete Account
-              </Link>
+              </button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography id="modal-modal-title" variant="h5" component="h2" style={{ fontFamily: 'Poppins' }}>
+                    Delete Account
+                  </Typography>
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ fontFamily: 'Poppins' }}>
+                    Are you sure you want to delete your account permanenlty?
+                  </Typography>
+                  <Link
+                    onClick={() => {
+                      return (
+                        handleDelete(id),
+                        localStorage.clear('user'),
+                        navigate("/")
+                      )
+                    }}
+                    className="btn btn-danger"
+                    style={{ marginTop: '50px' }}
+                  >
+                    Delete Permanently
+                  </Link>
+                </Box>
+              </Modal>
 
             </div>
           </div>

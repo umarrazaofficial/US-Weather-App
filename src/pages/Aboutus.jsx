@@ -13,10 +13,10 @@ const Aboutus = () => {
                 <div className='h-100' style={{ display: "flex", justifyContent: 'center', padding: "50px 10px 0px 10px" }}>
                     <div className='col-lg-10'>
                         <div>
-                            <h4>Welcome to US-Store: Where Innovation Meets Shopping Excellence</h4>
-                            <p style={{ fontSize: '17px', lineHeight: '1.6', marginTop: '15px' }}>Greetings! I am thrilled to introduce you to US-Store, a cutting-edge e-commerce venture meticulously crafted by the visionary mind of Umar Raza. As the brainchild of Umar, a dynamic Junior MERN Stack Developer, US-Store is more than just an online marketplace – it's a testament to the fusion of technological prowess and a passion for delivering unparalleled shopping experiences.</p>
-                            <h4>About the Founder - Umar Raza:</h4>
-                            <p style={{ fontSize: '17px', lineHeight: '1.6', marginTop: '15px' }}>Umar Raza, armed with a profound understanding of the MERN (MongoDB, Express.js, React.js, Node.js) stack, has embarked on a journey to revolutionize the digital shopping landscape. His commitment to innovation and his coding finesse form the bedrock upon which US-Store stands. As a Junior MERN Stack Developer, Umar brings a fresh perspective to the world of e-commerce, infusing creativity and technical acumen into every line of code.</p>
+                            <h4 className='heading'>Welcome to US-Store: Where Innovation Meets Shopping Excellence</h4>
+                            <p style={{ fontSize: '17px', lineHeight: '1.6' }}>Greetings! I am thrilled to introduce you to US-Store, a cutting-edge e-commerce venture meticulously crafted by the visionary mind of Umar Raza. As the brainchild of Umar, a dynamic Junior MERN Stack Developer, US-Store is more than just an online marketplace – it's a testament to the fusion of technological prowess and a passion for delivering unparalleled shopping experiences.</p>
+                            <h4 className='heading'>About the Founder - Umar Raza:</h4>
+                            <p style={{ fontSize: '17px', lineHeight: '1.6' }}>Umar Raza, armed with a profound understanding of the MERN (MongoDB, Express.js, React.js, Node.js) stack, has embarked on a journey to revolutionize the digital shopping landscape. His commitment to innovation and his coding finesse form the bedrock upon which US-Store stands. As a Junior MERN Stack Developer, Umar brings a fresh perspective to the world of e-commerce, infusing creativity and technical acumen into every line of code.</p>
                         </div>
                     </div>
                 </div>

@@ -35,19 +35,19 @@ const Footer = () => {
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-700 mb-4">
+              <h6 className="text-uppercase fw-700 mb-4 ">
                 Products
               </h6>
-              <p>
+              <p className='f-heading'>
                 JavaScript
               </p>
-              <p>
+              <p className='f-heading'>
                 React.Js
               </p>
-              <p>
+              <p className='f-heading'>
                 Node.Js
               </p>
-              <p>
+              <p className='f-heading'>
                 MongoDB
               </p>
             </div>
@@ -55,16 +55,16 @@ const Footer = () => {
               <h6 className="text-uppercase fw-700 mb-4">
                 Useful links
               </h6>
-              <p>
+              <p className='f-heading'>
                 <a href="https://www.facebook.com/zidi.rajput.3572846?mibextid=ZbWKwL" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Facebook</a>
               </p>
-              <p>
+              <p className='f-heading'>
                 <a href="https://www.instagram.com/umarraza_official1?igsh=MTN6NGkzbnE0bTZ2bg==" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Instagram</a>
               </p>
-              <p>
+              <p className='f-heading'>
                 <a href="https://www.linkedin.com/in/umar-raza-b99982246/" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Linkedin</a>
               </p>
-              <p>
+              <p className='f-heading'>
                 <a href="https://github.com/UmarSanyara" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Github</a>
               </p>
             </div>

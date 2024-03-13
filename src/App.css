@@ -1,62 +1,124 @@
 .App {
   text-align: center;
 }
+
+
+@keyframes customAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .slick-track {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 30px;
+  animation: customAnimation 60s linear infinite;
 }
-.slider-container{
+
+/* Define your custom easing function */
+@keyframes customEase {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.heading {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s;
+  overflow: hidden;
+}
+
+.heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background-color: #333;
+  transition: width 0.3s ease-out;
+  transform-origin: left;
+}
+
+.heading:hover::after {
+  width: 100%;
+}
+
+.slider-container {
   padding: 0px 81px 0px 103px;
   overflow: hidden;
 }
+
 .content {
   max-height: 0px;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 }
+
 .show {
   height: auto;
   max-height: 9999px;
   overflow: auto;
   transition: all 0.5s cubic-bezier(1, 0, 1, 0);
 }
-::selection{
+
+::selection {
   background-color: #2B6356;
   color: #fff;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
 }
-.card{
+
+.card {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
-.card-img-top{
+
+.card-img-top {
   overflow: 'hidden';
   transition: transform 0.3s;
 }
-.card-body{
+
+.card-body {
   padding-top: 30px;
 }
-.card-img-top:hover{
+
+.card-img-top:hover {
   overflow: hidden;
   transform: scale(1.2);
 }
+
 .Toastify__toast-body {
   font-family: 'poppins', sans-serif;
 }
+
 .slick-next,
 .slick-prev {
   opacity: 0;
 }
+
 .slick-next:before,
 .slick-prev:before {
   opacity: 0;
@@ -76,36 +138,52 @@ body {
 .slick-prev:hover:after {
   opacity: 0;
 }
-@media only screen and (max-width: 500px)
-{
-  .product-details-section{
+
+@media only screen and (max-width: 500px) {
+  .product-details-section {
     flex-direction: column !important;
   }
+
   .checkout-section {
-  flex-direction: column !important;
-  padding-left: 20px;
-  padding-right: 20px;
+    flex-direction: column !important;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .product-details-div-1{
+
+  .product-details-div-1 {
     width: 100% !important;
   }
+
   .product-details-div-2 {
     margin-top: 20px;
     width: 100% !important;
   }
-   .login-buttons{
+
+  .login-buttons {
     display: flex;
     flex-direction: column;
     gap: 15px;
-   }
-  .add-product-section, .register-section, .profile-section, .login-section {
+  }
+
+  .add-product-section,
+  .register-section,
+  .profile-section,
+  .login-section {
     padding-left: 30px;
     padding-right: 30px;
   }
-  .add-product-div-1, .register-div-1, .profile-div-1, .login-div-1 {
+
+  .add-product-div-1,
+  .register-div-1,
+  .profile-div-1,
+  .login-div-1 {
     display: none !important;
   }
-  .add-product-div-2, .register-div-2, .profile-div-2, .login-div-2 {
+
+  .add-product-div-2,
+  .register-div-2,
+  .profile-div-2,
+  .login-div-2 {
     width: 100% !important;
     display: flex;
     justify-content: center !important;
@@ -138,6 +216,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

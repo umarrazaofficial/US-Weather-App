@@ -11,7 +11,7 @@ const Home = () => {
                 <Sliders />
             </div>
             <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
-                <h1>Latest Products:</h1>
+                <h1 className='heading'>Latest Products:</h1>
             </div>
             <div style={{ marginTop: '20px', position: 'relative' }}>
                 <Products />
