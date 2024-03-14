@@ -34,7 +34,7 @@ const Edit = () => {
   const state = { name: defaultname, email: defaultemail, password: defaultpassword }
   const handleEdit = async () => {
     await axios.put(`https://us-store-backend.vercel.app/api/updateUser/${Id}`, state);
-    await navigate("/user");
+    await navigate("/");
     window.location.reload(true);
   };
   return (

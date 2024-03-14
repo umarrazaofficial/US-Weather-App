@@ -49,7 +49,7 @@ const Checkout = (props) => {
     const handlesubmit = (e) => {
         e.preventDefault();
         if (Object.values(details).some((value) => value === '')) {
-            alert('Please fill in all the fields.');
+            toast.error('Please fill in all the fields.', { autoClose: 2000, pauseOnHover: false });
         } else {
             try {
                 axios.post('https://us-store-backend.vercel.app/api/addOrder', details)

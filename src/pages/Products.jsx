@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Loading from "../components/loading"
 
 
-const Products = () => {
+const Products = ({ type }) => {
     const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([])
@@ -18,34 +18,46 @@ const Products = () => {
                 console.error('Error fetching data: ', error);
             });
     }, [])
+
     return (
         <div style={{ minHeight: '541px' }}>
             {loading ?
                 <Loading />
                 :
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', paddingTop: '50px', paddingBottom: '50px', gap: '30px' }}>
-                    {products?.map((product, index) => (
-                        <Link to={
-                            `/productDetails/${product._id}`} style={{ textDecoration: 'none' }} key={index}>
-                            <>
-                                <div className="card" style={{ width: '24rem' }}>
-                                    <img className="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
-                                        <h6 className="card-title">${product?.price}</h6>
-                                        <p className="card-text">{product?.description?.length > 100 ? product?.description.substr(0, 90) + ' ... ' : product.description}</p>
-                                        <button className="btn btn-success" >View Details</button>
+                (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', paddingTop: '50px', paddingBottom: '50px', gap: '30px' }}>
+                        {type === 'latest' ? (
+                            products?.slice(-3).map((product, index) => (
+                                <Link to={`/productDetails/${product._id}`} style={{ textDecoration: 'none' }} key={index}>
+                                    <div className="card" style={{ width: '24rem' }}>
+                                        <img className="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
+                                            <h6 className="card-title">${product?.price}</h6>
+                                            <p className="card-text">{product?.description?.length > 100 ? product?.description.substr(0, 90) + ' ... ' : product.description}</p>
+                                            <button className="btn btn-success">View Details</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </>
-                        </Link>
-                    )
-                    )}
-                </div>
-
-            }
-
-        </div >
+                                </Link>
+                            ))
+                        ) : (
+                            products?.map((product, index) => (
+                                <Link to={`/productDetails/${product._id}`} style={{ textDecoration: 'none' }} key={index}>
+                                    <div className="card" style={{ width: '24rem' }}>
+                                        <img className="card-img-top" src={product.image} style={{ height: '15rem', overflow: 'hidden' }} alt="Card image cap" />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{product?.title?.length > 30 ? product?.title.substr(0, 25) + '...' : product?.title}</h5>
+                                            <h6 className="card-title">${product?.price}</h6>
+                                            <p className="card-text">{product?.description?.length > 100 ? product?.description.substr(0, 90) + ' ... ' : product.description}</p>
+                                            <button className="btn btn-success">View Details</button>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))
+                        )}
+                    </div>
+                )}
+        </div>
 
     )
 }

@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ReactStars from "react-rating-stars-component";
 
 const style = {
@@ -72,7 +73,7 @@ const Productdetails = (props) => {
                 setAdmin(authObject.isAdmin)
                 const id = authObject._id;
                 const user = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${id}`);
-                const previousratings = await axios.get(`https://us-store-backend.vercel.app/api/getRating`);
+                const previousratings = await axios.get(`https://us-store-backend.vercel.app/api/getProductrating/${Id}`);
                 setPreviousratings(previousratings?.data);
                 setUser(user.data);
                 setRating({
@@ -111,7 +112,14 @@ const Productdetails = (props) => {
         }
     }
 
-    console.log(previousratings)
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`https://us-store-backend.vercel.app/api/deleteRating/${id}`);
+            window.location.reload(true);
+        } catch {
+            console.log("Error Deleting Rating");
+        }
+    }
 
     return (
         <div>
@@ -124,13 +132,13 @@ const Productdetails = (props) => {
                     :
                     <>
                         <div style={{ width: '50%' }} className='product-details-div-2'>
-                            <h2 class="card-title">{product?.title}</h2>
+                            <h2 className="card-title">{product?.title}</h2>
                             <br />
-                            <h3 class="card-title">${product?.price}</h3>
+                            <h3 className="card-title">${product?.price}</h3>
                             <br />
-                            <p class="card-text" style={{ lineHeight: '30px' }}>{product?.description}</p>
+                            <p className="card-text" style={{ lineHeight: '30px' }}>{product?.description}</p>
                             <br />
-                            <div class="d-flex flex-row">
+                            <div className="d-flex flex-row">
                                 {countervalue == 1 ?
                                     <button className="btn btn-sm disabled" style={{ fontSize: '20px', marginLeft: '5px' }} onClick={() => setCountervalue(countervalue - 1)}>
                                         -
@@ -146,9 +154,9 @@ const Productdetails = (props) => {
 
                             </div>
                             <br />
-                            {admin ? <a href="#" class="btn btn-secondary disabled" >Add to Cart</a> :
+                            {admin ? <a href="#" className="btn btn-secondary disabled" >Add to Cart</a> :
                                 (
-                                    itemexist ? <a href="#" class="btn btn-secondary disabled" >Added to Cart</a> : < a href="#" class="btn btn-success" onClick={() => {
+                                    itemexist ? <a href="#" className="btn btn-secondary disabled" >Added to Cart</a> : < a href="#" className="btn btn-success" onClick={() => {
                                         props.addtoCartHandler({
                                             image: product.image,
                                             title: product.title,
@@ -160,9 +168,9 @@ const Productdetails = (props) => {
                                         toast(<div style={{ width: "200px", display: 'flex', flexDirection: 'column', color: 'black', fontFamily: 'poppins' }}>
                                             <div><img src={product?.image} width={150} /></div>
                                             <div>
-                                                <h5 class="card-title">{product?.title}</h5>
+                                                <h5 className="card-title">{product?.title}</h5>
                                                 <br />
-                                                <h4 class="card-title">${product?.price}</h4>
+                                                <h4 className="card-title">${product?.price}</h4>
                                             </div>
 
                                         </div>,
@@ -177,80 +185,90 @@ const Productdetails = (props) => {
             <div className="table-responsive" style={{ display: 'flex', alignItems: 'center', margin: '93px 50px' }}>
                 <table className="table">
                     <thead>
-                        <th scope="col" className="h3" style={{ display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
-                            Product Reviews
-                            <button
-                                className="form-control my-3 btn btn-success"
-                                style={{ width: "15%" }}
-                                onClick={handleOpen}
-                            >
-                                <CreateIcon style={{ fontSize: 22, marginRight: '10px' }} />
-                                Write a Review
-                            </button>
-                            <Modal
-                                open={open}
-                                onClose={handleClose}
-                                aria-labelledby="modal-modal-title"
-                                aria-describedby="modal-modal-description"
-                            >
-                                <Box sx={style}>
-                                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{ fontFamily: 'Poppins', display: 'flex', justifyContent: 'center' }}>
-                                        US-Store
-                                    </Typography>
-                                    <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ fontFamily: 'Poppins' }}>
-                                        <div style={{ display: 'flex', gap: '20px', alignItems: "center" }}>
-                                            <div><AccountCircleIcon style={{ fontSize: "50px" }} /></div>
-                                            <div style={{ lineHeight: 0.5 }}>
-                                                <h6> {user?.name && user?.name} </h6>
-                                                <div style={{ fontSize: '14px' }}> Review will be visible publicly</div>
+                        <tr style={{ border: '0px' }}>
+                            <th scope="col" className="h3" style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", borderBottom: 0 }}>
+                                <div style={{ display: 'flex' }}>
+                                    Product Reviews {"   "} <h6 style={{ paddingTop: '10px', paddingLeft: '10px' }}>{previousratings?.length} reviews</h6>
+                                </div>
+                                <button
+                                    className="form-control my-3 btn btn-success"
+                                    style={{ width: "15%" }}
+                                    onClick={handleOpen}
+                                >
+                                    <CreateIcon style={{ fontSize: 22, marginRight: '10px' }} />
+                                    Write a Review
+                                </button>
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                >
+                                    <Box sx={style}>
+                                        <Typography id="modal-modal-title" variant="h6" component="h2" style={{ fontFamily: 'Poppins', display: 'flex', justifyContent: 'center' }}>
+                                            US-Store
+                                        </Typography>
+                                        <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ fontFamily: 'Poppins' }}>
+                                            <div style={{ display: 'flex', gap: '20px', alignItems: "center" }}>
+                                                <div><AccountCircleIcon style={{ fontSize: "50px" }} /></div>
+                                                <div style={{ lineHeight: 0.5 }}>
+                                                    <h6> {user?.name && user?.name} </h6>
+                                                    <div style={{ fontSize: '14px' }}> Review will be visible publicly</div>
+                                                </div>
                                             </div>
+                                        </Typography>
+                                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                            <ReactStars
+                                                count={5}
+                                                onChange={ratingChanged}
+                                                size={40}
+                                                value={1}
+                                                isHalf={false}
+                                                emptyIcon={<i className="far fa-star"></i>}
+                                                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                                fullIcon={<i className="fa fa-star"></i>}
+                                                activeColor="#ffd700"
+                                            />
                                         </div>
-                                    </Typography>
-                                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                        <ReactStars
-                                            count={5}
-                                            onChange={ratingChanged}
-                                            size={40}
-                                            value={1}
-                                            isHalf={false}
-                                            emptyIcon={<i className="far fa-star"></i>}
-                                            halfIcon={<i className="fa fa-star-half-alt"></i>}
-                                            fullIcon={<i className="fa fa-star"></i>}
-                                            activeColor="#ffd700"
-                                        />
-                                    </div>
-                                    <textarea placeholder='Share your experience with this product' style={{ width: '100%', height: '80px', marginTop: '25px' }}
-                                        onChange={(e) => {
-                                            setRating({ ...rating, description: e.target.value });
-                                        }} />
+                                        <textarea placeholder='Share your experience with this product' required style={{ width: '100%', height: '80px', marginTop: '25px' }}
+                                            onChange={(e) => {
+                                                setRating({ ...rating, description: e.target.value });
+                                            }} />
 
-                                    <Link
-                                        onClick={submitRating}
-                                        className="btn btn-success"
-                                        style={{ marginTop: '40px' }}
-                                    >
-                                        Post Review
-                                    </Link>
-                                </Box>
-                            </Modal>
-                        </th>
+                                        <Link
+
+                                            onClick={submitRating}
+                                            className="btn btn-success"
+                                            style={{ marginTop: '40px' }}
+                                        >
+                                            Post Review
+                                        </Link>
+                                    </Box>
+                                </Modal>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                        {previousratings?.map((data, index) => (
-                            <div className="card shadow-2-strong" style={{ borderRadius: '16px', margin: '20px 0px' }} key={index}>
-                                <div className="card-body p-4">
-
-                                    <div className="row" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        <div className="col-md-6 col-lg-6 col-xl-6">
-                                            <div className="row">
-                                                <div style={{ display: 'flex', gap: '20px', alignItems: "center" }}>
-                                                    <div><AccountCircleIcon style={{ fontSize: "50px" }} /></div>
-                                                    <div style={{ lineHeight: 0.5 }}>
-                                                        <h6> {data?.userId?.name && data?.userId?.name} </h6>
+                        {previousratings?.length > 0 ? (
+                            previousratings.map((data, index) => (
+                                <div className="card shadow-2-strong" style={{ borderRadius: '16px', margin: '20px 0px' }} key={index}>
+                                    <div className="card-body p-4">
+                                        <div className="row" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                            <div className="col-md-6 col-lg-6 col-xl-6">
+                                                <div className="row" style={{ gap: '20px' }}>
+                                                    <div style={{ display: 'flex', gap: '20px', alignItems: "center" }}>
+                                                        <div><AccountCircleIcon style={{ fontSize: "50px" }} /></div>
+                                                        <div style={{ lineHeight: 0.5 }}>
+                                                            <h6>{data?.userId?.name && data?.userId?.name}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div style={{ paddingLeft: '80px' }}>
+                                                        <p>{data?.description}</p>
                                                     </div>
                                                 </div>
-
-                                                <div className="col-12 col-xl-6">
+                                            </div>
+                                            <div className="col-lg-6 col-xl-4">
+                                                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                                     <ReactStars
                                                         count={5}
                                                         size={40}
@@ -262,34 +280,26 @@ const Productdetails = (props) => {
                                                         edit={false}
                                                     />
                                                 </div>
+                                                {data?.userId?._id === user?._id ? (
+                                                    <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: '10px' }}>
+                                                        <button className="btn btn-danger ms-2" onClick={() => handleDelete(data?._id)}>
+                                                            <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
+                                                            Remove
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <></>
+                                                )}
+
                                             </div>
                                         </div>
-
-                                        {/* <div className="col-lg-6 col-xl-4">
-                                                <div className="d-flex justify-content-between" style={{ fontWeight: 500 }}>
-                                                    <p className="mb-2">Subtotal</p>
-                                                    <p className="mb-2">${totalPrice}</p>
-                                                </div>
-
-                                                <div className="d-flex justify-content-between" style={{ fontWeight: 500 }}>
-                                                    <p className="mb-0">Shipping</p>
-                                                    <p className="mb-0">$0.00</p>
-                                                </div>
-
-                                                <hr className="my-4" />
-
-                                                <div className="d-flex justify-content-between mb-4" style={{ fontWeight: 500 }}>
-                                                    <p className="mb-2">Total (tax included)</p>
-                                                    <p className="mb-2">${totalPrice}</p>
-                                                </div>
-
-                                            </div> */}
                                     </div>
                                 </div>
-                            </div>
-
-                        )
+                            ))
+                        ) : (
+                            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '50px' }}><h5>No reviews found</h5></div>
                         )}
+
                     </tbody>
                 </table>
             </div>
