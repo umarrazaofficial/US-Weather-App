@@ -9,6 +9,7 @@ const Completedorders = () => {
     const [orders, setOrders] = useState();
 
     useEffect(() => {
+        document.title = "US-Store - Completed Orders";
         axios.get('https://us-store-backend.vercel.app/api/getcompletedorders')
             .then(response => {
                 setOrders(response.data);

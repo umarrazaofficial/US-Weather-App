@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "US-Store - Login";
     const auth = localStorage.getItem('user');
     if (auth) {
       navigate('/')

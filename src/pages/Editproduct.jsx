@@ -31,6 +31,7 @@ const Editproduct = () => {
                     description: response.data.description,
                     price: response.data.price,
                 })
+                document.title = "US-Store - Edit Product";
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }

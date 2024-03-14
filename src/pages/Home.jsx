@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from '../components/Carousel'
 import Products from './Products'
 import Sliders from '../components/Slider'
@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 
 const Home = () => {
+    useEffect(() => {
+        document.title = "US-Store";
+    })
     return (
         <>
             <Carousel />

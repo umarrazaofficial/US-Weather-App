@@ -21,6 +21,7 @@ const Edit = () => {
         setDefaultname(response.data?.name);
         setDefaultemail(response.data?.email);
         setDefaultpassword(response.data?.password);
+        document.title = "US-Store - Edit Profile";
       } catch (error) {
         console.error('Error fetching data: ', error);
       }

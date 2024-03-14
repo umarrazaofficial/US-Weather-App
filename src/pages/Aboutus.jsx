@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Creatorimage from '../assets/creator.png';
 
 const Aboutus = () => {
+    useEffect(() => {
+        document.title = "US-Store - About Us";
+    })
 
     return (
         <>

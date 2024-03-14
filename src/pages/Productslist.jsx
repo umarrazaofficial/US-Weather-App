@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { button } from 'bootstrap';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,6 +9,7 @@ const Productslist = () => {
     const { Id } = useParams();
     const [products, setProducts] = useState([])
     useEffect(() => {
+        document.title = "US-Store - Products List";
         axios.get('https://us-store-backend.vercel.app/api/getProducts')
             .then(response => {
                 setProducts(response.data);

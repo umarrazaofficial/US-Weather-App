@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
@@ -12,6 +12,10 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const state = { name: name, email: email, password: password };
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "US-Store - Register";
+  })
 
   const handleSubmit = async (event) => {
     event.preventDefault();

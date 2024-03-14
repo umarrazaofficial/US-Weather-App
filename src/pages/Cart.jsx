@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import cardItems from "../services/reducers/reducers";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { removefromCart } from '../services/actions/actions';
 import { Link } from 'react-router-dom';
@@ -13,6 +12,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Cart = (props) => {
+    useEffect(() => {
+    document.title = "US-Store - Cart";
+    })
     const cart = props.Data;
     let totalPrice = 0
     for (let index = 0; index < cart.length; index++) {

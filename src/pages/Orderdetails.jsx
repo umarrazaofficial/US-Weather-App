@@ -12,6 +12,7 @@ const Orderdetails = () => {
     const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
+            document.title = "US-Store - Order Details";
             setLoading(true);
             try {
                 const response = await axios.get(`https://us-store-backend.vercel.app/api/getOrder/${Id}`);

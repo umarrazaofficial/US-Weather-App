@@ -43,6 +43,7 @@ const Profile = () => {
         setName(response.data?.name);
         setEmail(response.data?.email);
         setPassword(response.data?.password);
+        document.title = "US-Store - Account Setting";
       } catch (error) {
         console.error('Error fetching data: ', error);
       }

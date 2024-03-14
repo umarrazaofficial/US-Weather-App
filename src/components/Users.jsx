@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import { toast } from "react-toastify";
@@ -10,7 +10,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Users = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
@@ -24,6 +23,7 @@ const Users = () => {
   };
   const [users, setUsers] = useState([])
   useEffect(() => {
+    document.title = "US-Store - Users";
     axios.get('https://us-store-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);

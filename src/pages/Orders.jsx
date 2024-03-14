@@ -9,6 +9,7 @@ const Orders = () => {
     const [orders, setOrders] = useState();
 
     useEffect(() => {
+        document.title = "US-Store - Pending Orders";
         axios.get('https://us-store-backend.vercel.app/api/getpendingorders')
             .then(response => {
                 setOrders(response.data);

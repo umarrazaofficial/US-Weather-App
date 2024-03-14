@@ -11,6 +11,10 @@ const Addproduct = () => {
     const [image, setImage] = useState("");
     const state = { title, description, price, image };
 
+    useEffect(() => {
+    document.title = "US-Store - Add Product";
+    })
+
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -20,10 +24,6 @@ const Addproduct = () => {
         formdata.append('description', description);
         formdata.append('price', price);
         formdata.append('image', image);
-
-
-
-        // localStorage.setItem('user',JSON.stringify(state))
 
         try {
             await axios.post("https://us-store-backend.vercel.app/api/addProduct", formdata);

@@ -9,6 +9,7 @@ const Products = ({ type }) => {
 
     const [products, setProducts] = useState([])
     useEffect(() => {
+        document.title = "US-Store - Products";
         axios.get('https://us-store-backend.vercel.app/api/getProducts')
             .then(response => {
                 setProducts(response.data);

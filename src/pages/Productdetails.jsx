@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addtoCart } from '../services/actions/actions';
 import Loading from '../components/loading';
@@ -89,7 +89,7 @@ const Productdetails = (props) => {
                     id: response.data._id
                 })
                 setLoading(false);
-
+                document.title = "US-Store - Product Details";
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }

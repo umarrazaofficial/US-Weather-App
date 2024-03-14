@@ -26,6 +26,7 @@ const Checkout = (props) => {
     });
 
     useEffect(() => {
+        document.title = "US-Store - Check Out";
         if (cart && cart.length > 0) {
             const updatedProducts = cart.map((product) => ({
                 productId: product?.cardData?._id,

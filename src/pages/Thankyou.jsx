@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Thankyou = () => {
+    useEffect(() => {
+        document.title = "US-Store - Thank You";
+    })
     return (
         <div className="d-flex justify-content-center align-items-center" style={{ margin: '90px 0px' }}>
             <div className="col-md-4">
