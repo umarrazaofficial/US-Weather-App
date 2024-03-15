@@ -227,7 +227,7 @@ const Productdetails = (props) => {
                                                 emptyIcon={<i className="far fa-star"></i>}
                                                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                                                 fullIcon={<i className="fa fa-star"></i>}
-                                                activeColor="#ffd700"
+                                                activeColor="#FABB0A"
                                             />
                                         </div>
                                         <textarea placeholder='Share your experience with this product' required style={{ width: '100%', height: '80px', marginTop: '25px' }}
@@ -276,7 +276,7 @@ const Productdetails = (props) => {
                                                         isHalf={false}
                                                         emptyIcon={<i className="far fa-star"></i>}
                                                         fullIcon={<i className="fa fa-star"></i>}
-                                                        activeColor="#ffd700"
+                                                        activeColor="#FABB0A"
                                                         edit={false}
                                                     />
                                                 </div>

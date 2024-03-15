@@ -13,13 +13,20 @@
   }
 }
 
+.review-slider{
+  width: 100%;
+}
+
+.logo-slider .slick-track {
+  animation: customAnimation 60s linear infinite;
+}
 .slick-track {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 30px;
-  animation: customAnimation 60s linear infinite;
+  overflow: hidden;
 }
 
 /* Define your custom easing function */

@@ -11,7 +11,7 @@ import "../App.css";
 
 const Sliders = () => {
     const settings = {
-        className: "center",
+        className: "logo-slider center",
         centerMode: true,
         dots: false,
         slidesToScroll: 1,

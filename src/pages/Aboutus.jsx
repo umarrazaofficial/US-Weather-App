@@ -8,10 +8,6 @@ const Aboutus = () => {
 
     return (
         <>
-            <section>
-
-
-            </section>
             <section className="vh-75" style={{ backgroundColor: '#f4f5f7' }}>
                 <div className='h-100' style={{ display: "flex", justifyContent: 'center', padding: "50px 10px 0px 10px" }}>
                     <div className='col-lg-10'>

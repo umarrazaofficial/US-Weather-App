@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-import Carousel from '../components/Carousel'
-import Products from './Products'
-import Sliders from '../components/Slider'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import Carousel from '../components/Carousel';
+import Products from './Products';
+import Sliders from '../components/Slider';
+import { Link } from 'react-router-dom';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import ReviewSlider from "../components/reviewsSlider";
 
 const Home = () => {
     useEffect(() => {
@@ -27,6 +28,9 @@ const Home = () => {
                         View All Products <ArrowCircleRightIcon style={{ fontSize: '30px' }} />
                     </button>
                 </Link>
+            </div>
+            <div>
+                <ReviewSlider />
             </div>
         </>
     )
