@@ -22,51 +22,71 @@ const Sliders = () => {
         pauseOnHover: false,
         autoplaySpeed: 3000,
         cssEase: "customEase",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 540,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
     };
     return (
         <div className="slider-container">
             <Slider {...settings}>
                 <div>
-                    <img src={Html} style={{ height: '140px', width: '140px' }} />
+                    <img src={Html} />
                 </div>
                 <div>
-                    <img src={Css} style={{ height: '140px', width: '140px' }} />
+                    <img src={Css} />
                 </div>
                 <div>
-                    <img src={Bootstrap} style={{ height: '140px', width: '140px' }} />
+                    <img src={Bootstrap} />
                 </div>
                 <div>
-                    <img src={Js} style={{ height: '140px', width: '140px' }} />
+                    <img src={Js} />
                 </div>
                 <div>
-                    <img src={Reactjs} style={{ height: '140px', width: '140px' }} />
+                    <img src={Reactjs} />
                 </div>
                 <div>
-                    <img src={Mongo} style={{ height: '140px', width: '140px' }} />
+                    <img src={Mongo} />
                 </div>
                 <div>
-                    <img src={Node} style={{ height: '140px', width: '140px' }} />
+                    <img src={Node} />
                 </div>
                 <div>
-                    <img src={Html} style={{ height: '140px', width: '140px' }} />
+                    <img src={Html} />
                 </div>
                 <div>
-                    <img src={Css} style={{ height: '140px', width: '140px' }} />
+                    <img src={Css} />
                 </div>
                 <div>
-                    <img src={Bootstrap} style={{ height: '140px', width: '140px' }} />
+                    <img src={Bootstrap} />
                 </div>
                 <div>
-                    <img src={Js} style={{ height: '140px', width: '140px' }} />
+                    <img src={Js} />
                 </div>
                 <div>
-                    <img src={Reactjs} style={{ height: '140px', width: '140px' }} />
+                    <img src={Reactjs} />
                 </div>
                 <div>
-                    <img src={Mongo} style={{ height: '140px', width: '140px' }} />
+                    <img src={Mongo} />
                 </div>
                 <div>
-                    <img src={Node} style={{ height: '140px', width: '140px' }} />
+                    <img src={Node} />
                 </div>
             </Slider>
         </div>

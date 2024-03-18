@@ -16,6 +16,20 @@ const Reviewsslider = () => {
         speed: 1000,
         pauseOnHover: false,
         swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 840,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 540,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
     };
 
     useEffect(() => {
@@ -128,32 +142,6 @@ const Reviewsslider = () => {
                         <div class="card">
                             <div class="card-body py-4 mt-2">
                                 <div class="d-flex justify-content-center mb-4">
-                                    <div style={{ width: '80px', height: '80px', backgroundColor: '#388E3C', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontSize: '36px', fontWeight: 'bold' }}>
-                                        A
-                                    </div>
-                                </div>
-                                <h5 class="font-weight-bold">Alexa Horwitz</h5>
-                                <ul class="list-unstyled d-flex justify-content-center">
-                                    <ReactStars
-                                        count={5}
-                                        size={30}
-                                        value={5}
-                                        isHalf={false}
-                                        emptyIcon={<i className="far fa-star"></i>}
-                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
-                                        fullIcon={<i className="fa fa-star"></i>}
-                                        activeColor="#FABB0A"
-                                        edit={false}
-                                    />
-                                </ul>
-                                <p class="mb-2">
-                                    <i class="fas fa-quote-left pe-2"></i>I'm constantly amazed by the variety of products available at US-Store. From everyday essentials to unique finds, they have it all. Plus, their sales and promotions make shopping even more enjoyable. Keep up the great work!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body py-4 mt-2">
-                                <div class="d-flex justify-content-center mb-4">
                                     <div style={{ width: '80px', height: '80px', backgroundColor: '#512DA8', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontSize: '36px', fontWeight: 'bold' }}>
                                         J
                                     </div>
@@ -174,6 +162,32 @@ const Reviewsslider = () => {
                                 </ul>
                                 <p class="mb-2">
                                     <i class="fas fa-quote-left pe-2"></i>As a busy mom, I appreciate how convenient it is to shop at US-Store. Their mobile app makes browsing and purchasing a breeze, and I love that I can trust the quality of their products. Shopping here has simplified my life!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body py-4 mt-2">
+                                <div class="d-flex justify-content-center mb-4">
+                                    <div style={{ width: '80px', height: '80px', backgroundColor: '#388E3C', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontSize: '36px', fontWeight: 'bold' }}>
+                                        A
+                                    </div>
+                                </div>
+                                <h5 class="font-weight-bold">Alexa Horwitz</h5>
+                                <ul class="list-unstyled d-flex justify-content-center">
+                                    <ReactStars
+                                        count={5}
+                                        size={30}
+                                        value={5}
+                                        isHalf={false}
+                                        emptyIcon={<i className="far fa-star"></i>}
+                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                        fullIcon={<i className="fa fa-star"></i>}
+                                        activeColor="#FABB0A"
+                                        edit={false}
+                                    />
+                                </ul>
+                                <p class="mb-2">
+                                    <i class="fas fa-quote-left pe-2"></i>I'm constantly amazed by the variety of products available at US-Store. From everyday essentials to unique finds, they have it all. Plus, their sales and promotions make shopping even more enjoyable. Keep up the great work!
                                 </p>
                             </div>
                         </div>

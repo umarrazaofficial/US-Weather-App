@@ -13,13 +13,14 @@
   }
 }
 
-.review-slider{
+.review-slider {
   width: 100%;
 }
 
 .logo-slider .slick-track {
   animation: customAnimation 60s linear infinite;
 }
+
 .slick-track {
   display: flex;
   justify-content: center;
@@ -63,6 +64,26 @@
 
 .heading:hover::after {
   width: 100%;
+}
+
+.logo-slider img {
+  width: 135px !important;
+  height: 135px !important;
+
+  @media only screen and (max-width: 1024px) {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  @media only screen and (max-width: 720px) {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  @media only screen and (max-width: 540px) {
+    width: 90px !important;
+    height: 90px !important;
+  }
 }
 
 .slider-container {
