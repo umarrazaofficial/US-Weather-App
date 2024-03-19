@@ -20,6 +20,7 @@ const Products = ({ type }) => {
             });
     }, [])
 
+
     return (
         <div style={{ minHeight: '541px' }}>
             {loading ?

@@ -7,6 +7,10 @@ const Orders = () => {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [orders, setOrders] = useState();
+    const [searchQuery, setSearchQuery] = useState({
+        page: 1,
+        limit: 5
+    });
 
     useEffect(() => {
         document.title = "US-Store - Pending Orders";
@@ -18,7 +22,24 @@ const Orders = () => {
             .catch(error => {
                 console.error('Error fetching data: ', error);
             });
-    }, [])
+    }, [searchQuery.page, searchQuery.limit])
+
+    const HandleIncrementPage = () => {
+        setSearchQuery(prevState => ({
+            ...prevState,
+            page: prevState.page + 1
+        }));
+        setLoading(true)
+
+    };
+    const HandleDecrementPage = () => {
+        setSearchQuery(prevState => ({
+            ...prevState,
+            page: prevState.page - 1
+        }));
+        setLoading(true)
+
+    };
 
     return (
         <section className="h-100 h-custom" style={{ minHeight: '540px' }}>
@@ -47,7 +68,7 @@ const Orders = () => {
                                         </tr>
                                     </thead>
                                 </table>
-                                {orders?.filter((data) => {
+                                {orders?.data?.filter((data) => {
                                     return (
                                         (search.toLowerCase() === "" ||
                                             (data?.firstName && data?.firstName.toLowerCase().includes(search.toLowerCase())) ||
@@ -133,11 +154,48 @@ const Orders = () => {
                                         </div>
                                     )
                                 })}
+                                <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between', fontSize: '20px' }}>
+                                    <nav aria-label="..." >
+                                        <ul class="pagination pagination-circle">
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" style={{ color: 'black', fontSize: '18px' }}>Total Pages: {orders?.totalPages} </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <nav aria-label="..." >
+                                        <ul class="pagination pagination-circle">
+                                            {orders?.currentPage === 1 ?
+                                                <li class="page-item">
+                                                    <a class="page-link disabled" style={{ color: 'black', fontSize: '18px', cursor: 'pointer' }} >Previous</a>
+                                                </li>
+                                                :
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" style={{ color: 'black', fontSize: '18px', cursor: 'pointer' }} onClick={HandleDecrementPage}>Previous</a>
+                                                </li>
+                                            }
 
+                                            <li class="page-item" aria-current="page" style={{ width: '50px', textAlign: 'center' }} >
+                                                <a class="page-link" style={{ color: 'black', fontSize: '18px' }}>{orders?.currentPage} </a>
+                                            </li>
+                                            {orders?.currentPage === orders?.totalPages ?
+                                                <li class="page-item" >
+                                                    <a class="page-link disabled" href="#" style={{ color: 'black', fontSize: '18px' }}>Next</a>
+                                                </li>
+                                                :
+                                                <li class="page-item" >
+                                                    <a class="page-link" href="#" style={{ color: 'black', fontSize: '18px' }} onClick={HandleIncrementPage}>Next</a>
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
+
                         }
 
                     </div>
+
                 </div>
             </div>
         </section >

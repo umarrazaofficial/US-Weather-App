@@ -36,6 +36,7 @@ const Productdetails = (props) => {
     const [loading, setLoading] = useState(true);
     const [countervalue, setCountervalue] = useState(1);
     const [itemexist, setItemexist] = useState(false);
+    const [reviewexist, setReviewexist] = useState(false);
     const [user, setUser] = useState('');
     const [open, setOpen] = useState(false);
     const [previousratings, setPreviousratings] = useState([]);
@@ -55,12 +56,19 @@ const Productdetails = (props) => {
         id: ''
     });
     let id = product.id;
+    let userID = user?._id;
 
     const itemExists = props.Data.some(item => item?.cardData._id === id);
+    const reviewExists = previousratings.some(item => item?.userId._id === userID);
+
 
     useEffect(() => {
         setItemexist(itemExists);
     }, [itemExists]);
+
+    useEffect(() => {
+        setReviewexist(reviewExists)
+    }, [reviewExists]);
 
 
     const [admin, setAdmin] = useState('');
@@ -120,7 +128,7 @@ const Productdetails = (props) => {
             console.log("Error Deleting Rating");
         }
     }
-
+    console.log(reviewexist)
     return (
         <div>
             <div style={{ minHeight: '300px', display: 'flex', alignItems: 'center', margin: '93px 50px' }} className='product-details-section'>
@@ -190,14 +198,25 @@ const Productdetails = (props) => {
                                 <div style={{ display: 'flex' }}>
                                     Product Reviews {"   "} <h6 style={{ paddingTop: '10px', paddingLeft: '10px' }}>{previousratings?.length} reviews</h6>
                                 </div>
-                                <button
-                                    className="form-control my-3 btn btn-success"
-                                    style={{ width: "15%" }}
-                                    onClick={handleOpen}
-                                >
-                                    <CreateIcon style={{ fontSize: 22, marginRight: '10px' }} />
-                                    Write a Review
-                                </button>
+                                {reviewexist ?
+                                    <button
+                                        className="form-control my-3 btn  btn-secondary btn-disabled"
+                                        style={{ width: "15%" }}
+                                    >
+                                        <CreateIcon style={{ fontSize: 22, marginRight: '10px' }} />
+                                        Write a Review
+                                    </button>
+                                    :
+                                    <button
+                                        className="form-control my-3 btn btn-success"
+                                        style={{ width: "15%" }}
+                                        onClick={handleOpen}
+                                    >
+                                        <CreateIcon style={{ fontSize: 22, marginRight: '10px' }} />
+                                        Write a Review
+                                    </button>
+                                }
+
                                 <Modal
                                     open={open}
                                     onClose={handleClose}

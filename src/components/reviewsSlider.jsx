@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Reviewsslider = () => {
     const [previousratings, setPreviousratings] = useState([]);
+    const [rating, setRating] = useState(4);
 
     const settings = {
         className: "review-slider",
@@ -37,6 +38,17 @@ const Reviewsslider = () => {
             try {
                 const previousratings = await axios.get(`https://us-store-backend.vercel.app/api/getRating`);
                 setPreviousratings(previousratings?.data);
+                let totalRatings = 0;
+
+                for (let index = 0; index < previousratings?.data.length; index++) {
+                    let rating = 0;
+                    rating = parseInt(previousratings?.data[index]?.ratings);
+                    if (!isNaN(rating)) {
+                        totalRatings += rating;
+                    }
+                }
+
+                setRating(totalRatings / previousratings?.data?.length);
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
@@ -45,17 +57,6 @@ const Reviewsslider = () => {
         fetchData();
     }, []);
 
-    let totalRatings = 0;
-
-    for (let index = 0; index < previousratings.length; index++) {
-        let rating = 0;
-        rating = parseInt(previousratings[index]?.ratings);
-        if (!isNaN(rating)) {
-            totalRatings += rating;
-        }
-    }
-
-    let average = totalRatings / previousratings?.length;
 
     return (
         <section style={{ color: "#000", backgroundColor: "#f3f2f2" }}>
@@ -68,11 +69,11 @@ const Reviewsslider = () => {
                         <h5 class="mb-2">US-Store</h5>
                     </div>
                     <div class="col-md-10 col-xl-8 text-center d-flex justify-content-center" style={{ gap: "10px" }}>
-                        <h4 style={{ display: 'flex', alignItems: "center" }}>{average.toFixed(1)}</h4>
+                        <h4 style={{ display: 'flex', alignItems: "center" }}>{rating.toFixed(1)}</h4>
                         <ReactStars
                             count={5}
                             size={35}
-                            value={4}
+                            value={rating?.toFixed(1)}
                             isHalf={true}
                             emptyIcon={<i className="far fa-star"></i>}
                             halfIcon={<i className="fa fa-star-half-alt"></i>}
