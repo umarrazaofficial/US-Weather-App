@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from './loading';
 import axios from "axios";
-import editProfile from "../assets/Edit-Profile.webp";
+import editProfile from "../assets/Edit-Profile.svg";
 import SaveIcon from '@mui/icons-material/Save';
 
 const Edit = () => {
@@ -21,7 +21,7 @@ const Edit = () => {
         setDefaultname(response.data?.name);
         setDefaultemail(response.data?.email);
         setDefaultpassword(response.data?.password);
-        document.title = "US-Store - Edit Profile";
+        document.title = "US-Weather-App - Edit Profile";
       } catch (error) {
         console.error('Error fetching data: ', error);
       }
@@ -39,14 +39,14 @@ const Edit = () => {
     window.location.reload(true);
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }} className='login-section'>
+    <div style={{ display: 'flex', minHeight: '541px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }} className='login-section'>
       {loading ?
 
         <Loading />
         :
         <>
           <div style={{ display: 'flex', alignItems: 'center', width: '50%' }} className='profile-div-1'>
-            <img src={editProfile} style={{ width: '100%' }} draggable="false" />
+            <img src={editProfile} style={{ width: '100%' }} draggable="false" alt="editProfile" />
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Edit Profile</h2>
@@ -59,6 +59,7 @@ const Edit = () => {
                 className="form-control"
                 id="inputname4"
                 placeholder="Enter Your Name:"
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 onChange={(e) => setDefaultname(e.target.value)}
                 value={defaultname}
               />
@@ -73,6 +74,7 @@ const Edit = () => {
                 id="inputemail4"
                 placeholder="Enter Your Email:"
                 readOnly
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 onChange={(e) => setDefaultemail(e.target.value)}
                 value={defaultemail}
               />
@@ -86,6 +88,7 @@ const Edit = () => {
                 className="form-control"
                 id="inputpassword4"
                 placeholder="Enter Your Password:"
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 onChange={(e) => setDefaultpassword(e.target.value)}
                 value={defaultpassword}
               />
@@ -94,7 +97,7 @@ const Edit = () => {
 
             <div className="col-8" >
               <button
-                className="btn btn-success" onClick={() => { handleEdit() }}>
+                className="btn btn-outline-light" onClick={() => { handleEdit() }}>
                 <SaveIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                 Save Changes
               </button>

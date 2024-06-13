@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import Registration from "../assets/registration.jpg";
+import Registration from "../assets/registration.svg";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "US-Store - Register";
+    document.title = "US-Weather-App - Register";
   })
 
   const handleSubmit = async (event) => {
@@ -35,7 +35,7 @@ const Signup = () => {
     }
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }} className='login-section'>
+    <div style={{ display: 'flex', minHeight: '541px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }} className='login-section'>
       {loading ?
 
         <Loading />
@@ -47,7 +47,7 @@ const Signup = () => {
           <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className="register-div-2">
             <h1>Register</h1>
             <form className="row g-3" onSubmit={handleSubmit}>
-              <div className="col-md-8">
+              <div className="col-md-8 styled-input">
                 <label htmlFor="inputname4" className="form-label">
                   Name
                 </label>
@@ -57,10 +57,11 @@ const Signup = () => {
                   id="inputname4"
                   placeholder="Enter Your Name:"
                   onChange={(e) => setName(e.target.value)}
+                  style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                   required
                 />
               </div>
-              <div className="col-md-8">
+              <div className="col-md-8 styled-input">
                 <label htmlFor="inputemail4" className="form-label">
                   Email
                 </label>
@@ -72,10 +73,11 @@ const Signup = () => {
                   title="Please enter a valid email address"
                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                   onChange={(e) => setEmail(e.target.value)}
+                  style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                   required
                 />
               </div>
-              <div className="col-md-8">
+              <div className="col-md-8 styled-input">
                 <label htmlFor="inputpassword4" className="form-label">
                   Password
                 </label>
@@ -88,13 +90,14 @@ const Signup = () => {
                   maxLength="20"
                   title="Password must be between 8 and 20 characters"
                   required
+                  style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
 
               <div className="col-8">
-                <button type="submit" className="btn btn-success" style={{ display: 'flex', alignItems: 'center' }}>
+                <button type="submit" className="btn btn-outline-light" style={{ display: 'flex', alignItems: 'center' }}>
                   <HowToRegIcon style={{ fontSize: 22, marginRight: '3px' }} />
                   Create Account
                 </button>

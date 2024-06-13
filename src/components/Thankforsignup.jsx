@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Thankforsignup = () => {
     useEffect(() => {
-        document.title = "US-Store - Thank You";
+        document.title = "US-Weather-App - Thank You";
     })
     return (
         <div className="d-flex justify-content-center align-items-center" style={{ margin: '90px 0px' }}>
@@ -20,7 +20,7 @@ const Thankforsignup = () => {
                     </div>
                     <div className="text-center">
                         <h1>Thank You !</h1>
-                        <p>Thank You so much for signing up to US-Store. </p>
+                        <p>Thank You so much for signing up to US-Weather-App. </p>
                         <Link to='/'><button className="btn btn-outline-success">Go to Home Page</button></Link>
                     </div>
                 </div>

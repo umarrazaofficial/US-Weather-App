@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  color: #fff;
+
 }
 
 
@@ -17,6 +19,13 @@
   width: 100%;
 }
 
+.slick-slide{
+  .card{
+  background-color:rgba(0,0,0,.4);
+  color: #fff;
+  }
+}
+
 .logo-slider .slick-track {
   animation: customAnimation 60s linear infinite;
 }
@@ -29,7 +38,15 @@
   gap: 30px;
   overflow: hidden;
 }
-
+.styled-input{
+  input{
+    background-color: rgba(0,0,0,.4);
+    color: #fff;
+  }
+  input::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
 /* Define your custom easing function */
 @keyframes customEase {
   0% {
@@ -40,6 +57,12 @@
     opacity: 1;
   }
 }
+
+.table{
+  --bs-table-bg: rgba(0,0,0,.2);  
+  --bs-table-color: rgba(255,255,255,.8)
+  }
+
 
 .heading {
   cursor: pointer;
@@ -105,8 +128,8 @@
 }
 
 ::selection {
-  background-color: #2B6356;
-  color: #fff;
+  background-color: #BA68C8;
+  color: #000;
 }
 
 .App-logo {

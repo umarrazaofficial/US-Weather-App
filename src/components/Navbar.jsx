@@ -3,12 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LoginIcon from '@mui/icons-material/Login';
-import { connect } from 'react-redux';
-const mapStateToProps = state => ({
-  Data: state.cardItems
-});
+
 const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState('');
@@ -36,7 +32,7 @@ const Navbar = (props) => {
       {auth ?
         <>
 
-          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#2B6356" }} data-bs-theme="dark">
+          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "rgba(0,0,0,.4)" }} data-bs-theme="dark">
             <div className="container-fluid">
               <button
                 className="navbar-toggler"
@@ -48,7 +44,7 @@ const Navbar = (props) => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <Link className="navbar-brand" to="/" style={{ marginRight: "50px" }}>
-                US-Store
+                US-Weather-App
               </Link>
 
 
@@ -70,29 +66,8 @@ const Navbar = (props) => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" to="/products">
-                      Products
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/addProduct">
-                      Add Products
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/productsList">
-                      Products List
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/orders">
-                      Orders List
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/completedOrders">
-                      Completed Orders
+                    <Link className="nav-link" aria-current="page" to="/user">
+                      Weather Updates
                     </Link>
                   </li>
 
@@ -110,8 +85,8 @@ const Navbar = (props) => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" aria-current="page" to="/products">
-                        Products
+                      <Link className="nav-link" aria-current="page" to="/user">
+                        Weather Updates
                       </Link>
                     </li>
                   </ul>
@@ -121,16 +96,6 @@ const Navbar = (props) => {
                   <button className="btn btn-outline-light" style={{ display: 'flex', alignItems: 'center', marginRight: "5px" }} onClick={() => { localStorage.clear('user'); navigate('/login') }}>
                     <LogoutIcon style={{ fontSize: 22 }} />Logout
                   </button>
-                  {admin ? "" :
-                    <Link className="nav-link" aria-current="page" to="/cart">
-
-                      <button className="btn btn-outline-light" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                        <ShoppingCartIcon style={{ fontSize: 20, marginRight: '15px' }} />
-                        <div style={{ position: 'absolute', left: '32%', top: '5%', fontSize: '14px' }}>{props?.Data?.length}
-                        </div> {"  "}Cart
-                      </button>
-                    </Link>
-                  }
                 </form>
               </div>
               <div className="me-2 ms-2 text-white ">
@@ -143,10 +108,10 @@ const Navbar = (props) => {
           </nav>
         </>
         : <>
-          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#2B6356" }} data-bs-theme="dark">
+          <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "rgba(0,0,0,.4)" }} data-bs-theme="dark">
             <div className="container-fluid">
               <Link className="navbar-brand" to="/login" style={{ marginRight: "50px" }}>
-                Welcome to US-Store
+                Welcome to US-Weather-App
               </Link>
               <button
                 className="navbar-toggler"
@@ -182,4 +147,4 @@ const Navbar = (props) => {
   );
 };
 
-export default connect(mapStateToProps)(Navbar)
+export default Navbar

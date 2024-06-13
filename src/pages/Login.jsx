@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
 import Loading from '../components/loading';
-import loginPage from "../assets/loginpage.jpg";
+import loginPage from "../assets/Loginn.svg";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "US-Store - Login";
+    document.title = "US-Weather-App - Login";
     const auth = localStorage.getItem('user');
     if (auth) {
       navigate('/')
@@ -34,7 +34,7 @@ const Login = () => {
     }
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }} className='login-section'>
+    <div style={{ display: 'flex', minHeight: '541px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }} className='login-section'>
       {loading ?
 
         <Loading />
@@ -47,36 +47,38 @@ const Login = () => {
             <h1>Log In</h1>
             <form class="row g-3" onSubmit={handleSubmit}>
 
-              <div class="col-md-8">
+              <div class="col-md-8 styled-input">
                 <label for="inputemail4" class="form-label">
                   Email
                 </label>
                 <input
                   type="email"
                   class="form-control"
-                  id="inputemail4"
+                  id="styled-input"
                   placeholder="Enter Your Email:"
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 />
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 styled-input">
                 <label for="inputpassword4" class="form-label">
                   Password
                 </label>
                 <input
                   type="password"
                   class="form-control"
-                  id="inputpassword4"
+                  id="styled-input"
                   placeholder="Enter Your Password:"
                   required
                   onChange={(e) => setPassword(e.target.value)}
+                  style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 />
               </div>
 
 
               <div class="col-8" style={{ marginTop: '40px' }}>
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-outline-light">
                   <LoginIcon style={{ fontSize: 22 }} /> Log In
                 </button>
               </div>

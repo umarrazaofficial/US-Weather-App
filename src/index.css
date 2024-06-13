@@ -1,6 +1,10 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background: url('./assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 code {
 font-family: 'Poppins', sans-serif;

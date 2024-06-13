@@ -59,32 +59,16 @@ const Reviewsslider = () => {
 
 
     return (
-        <section style={{ color: "#000", backgroundColor: "#f3f2f2" }}>
+        <section style={{ color: "#fff" }}>
             <div class="container py-5">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-10 col-xl-8 text-center">
                         <h3 class="fw-bold mb-4 heading">Testimonials</h3>
                     </div>
                     <div class="col-md-10 col-xl-8 text-center">
-                        <h5 class="mb-2">US-Store</h5>
+                        <h5 class="mb-2">US-Weather-App</h5>
                     </div>
-                    <div class="col-md-10 col-xl-8 text-center d-flex justify-content-center" style={{ gap: "10px" }}>
-                        <h4 style={{ display: 'flex', alignItems: "center" }}>{rating.toFixed(1)}</h4>
-                        <ReactStars
-                            count={5}
-                            size={35}
-                            value={rating?.toFixed(1)}
-                            isHalf={true}
-                            emptyIcon={<i className="far fa-star"></i>}
-                            halfIcon={<i className="fa fa-star-half-alt"></i>}
-                            fullIcon={<i className="fa fa-star"></i>}
-                            activeColor="#FABB0A"
-                            edit={false}
-                        />
-                    </div>
-                    <div class="col-md-10 col-xl-8 text-center">
-                        <h6 class="mb-2">Overall rating out of {previousratings?.length} Google reviews</h6>
-                    </div>
+
                 </div>
                 <div style={{ width: '100%', overflow: "hidden", textAlign: 'center' }}>
                     <Slider {...settings}>
@@ -110,7 +94,7 @@ const Reviewsslider = () => {
                                     />
                                 </ul>
                                 <p class="mb-2">
-                                    <i class="fas fa-quote-left pe-2"></i>Absolutely thrilled with my purchase from US-Store! The quality of the products surpassed my expectations, and the customer service was exceptional. Will definitely be shopping here again!
+                                    <i class="fas fa-quote-left pe-2"></i>Absolutely thrilled with my purchase from US-Weather-App! The quality of the products surpassed my expectations, and the customer service was exceptional. Will definitely be shopping here again!
                                 </p>
                             </div>
                         </div>
@@ -136,7 +120,7 @@ const Reviewsslider = () => {
                                     />
                                 </ul>
                                 <p class="mb-2">
-                                    <i class="fas fa-quote-left pe-2"></i>US-Store has become my go-to for all things fashion. Not only do they offer a wide selection of trendy items, but their delivery is always prompt, and the items arrive exactly as described. Highly recommend!
+                                    <i class="fas fa-quote-left pe-2"></i>US-Weather-App has become my go-to for all things fashion. Not only do they offer a wide selection of trendy items, but their delivery is always prompt, and the items arrive exactly as described. Highly recommend!
                                 </p>
                             </div>
                         </div>
@@ -162,7 +146,7 @@ const Reviewsslider = () => {
                                     />
                                 </ul>
                                 <p class="mb-2">
-                                    <i class="fas fa-quote-left pe-2"></i>As a busy mom, I appreciate how convenient it is to shop at US-Store. Their mobile app makes browsing and purchasing a breeze, and I love that I can trust the quality of their products. Shopping here has simplified my life!
+                                    <i class="fas fa-quote-left pe-2"></i>As a busy mom, I appreciate how convenient it is to shop at US-Weather-App. Their mobile app makes browsing and purchasing a breeze, and I love that I can trust the quality of their products. Shopping here has simplified my life!
                                 </p>
                             </div>
                         </div>
@@ -188,7 +172,7 @@ const Reviewsslider = () => {
                                     />
                                 </ul>
                                 <p class="mb-2">
-                                    <i class="fas fa-quote-left pe-2"></i>I'm constantly amazed by the variety of products available at US-Store. From everyday essentials to unique finds, they have it all. Plus, their sales and promotions make shopping even more enjoyable. Keep up the great work!
+                                    <i class="fas fa-quote-left pe-2"></i>I'm constantly amazed by the variety of products available at US-Weather-App. From everyday essentials to unique finds, they have it all. Plus, their sales and promotions make shopping even more enjoyable. Keep up the great work!
                                 </p>
                             </div>
                         </div>

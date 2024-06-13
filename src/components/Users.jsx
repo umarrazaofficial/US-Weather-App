@@ -23,7 +23,7 @@ const Users = () => {
   };
   const [users, setUsers] = useState([])
   useEffect(() => {
-    document.title = "US-Store - Users";
+    document.title = "US-Weather-App - Users";
     axios.get('https://us-store-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);
@@ -35,14 +35,14 @@ const Users = () => {
   }, [])
 
   return (
-    <div className="container " style={{ marginTop: "20px", marginBottom: '40px', minHeight: '481px' }}>
+    <div className="container " style={{ paddingTop: "20px", paddingBottom: '40px', minHeight: '481px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }}>
       <div
-        className="container "
+        className="container styled-input"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         <Link
           to="/register"
-          className="btn btn-success my-3" style={{ display: 'flex', alignItems: 'center' }}>
+          className="btn btn-outline-light my-3" style={{ display: 'flex', alignItems: 'center' }}>
           <AddIcon style={{ fontSize: 22, marginRight: '3px' }} />
           Create User
         </Link>
@@ -51,13 +51,13 @@ const Users = () => {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          style={{ width: "30%" }}
+          style={{ width: "30%", backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <table className="table">
-        <thead>
-          <tr>
+        <thead style={{ backgroundColor: " rgba(0,0,0,.5)", color: '#fff' }}>
+          <tr >
             <td>Name:</td>
             <td>Email:</td>
             <td>Password:</td>
@@ -71,7 +71,7 @@ const Users = () => {
         {loading ?
           <Loading />
           :
-          <tbody>
+          <tbody style={{ backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }}>
             {users?.filter((user) => {
               return (
                 (search.toLowerCase() === "" ||
@@ -92,13 +92,13 @@ const Users = () => {
                       password: `${user?.password}`
                     },
                   }}
-                    className="btn btn-sm btn-success">
+                    className="btn btn-sm btn-outline-light">
                     <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                     Edit
                   </Link>
                   <Link
                     onClick={() => handleDelete(user._id)}
-                    className="btn btn-sm btn-danger ms-2"
+                    className="btn btn-sm btn-outline-light ms-2"
                   >
                     <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                     Delete
@@ -108,9 +108,6 @@ const Users = () => {
             ))}
           </tbody>
         }
-
-
-
 
       </table>
     </div>

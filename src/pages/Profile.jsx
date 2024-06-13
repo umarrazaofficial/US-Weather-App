@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Loading from '../components/loading';
-import accountSetting from "../assets/accountSetting.jpeg"
+import accountSetting from "../assets/accountSetting.svg"
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -43,7 +43,7 @@ const Profile = () => {
         setName(response.data?.name);
         setEmail(response.data?.email);
         setPassword(response.data?.password);
-        document.title = "US-Store - Account Setting";
+        document.title = "US-Weather-App - Account Setting";
       } catch (error) {
         console.error('Error fetching data: ', error);
       }
@@ -59,7 +59,7 @@ const Profile = () => {
     window.location.reload(true);
   };
   return (
-    <div style={{ display: 'flex', minHeight: '541px' }} className='login-section'>
+    <div style={{ display: 'flex', minHeight: '541px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }} className='login-section'>
       {loading ?
 
         <Loading />
@@ -70,7 +70,7 @@ const Profile = () => {
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Account Setting</h2>
-            <div className="col-md-8">
+            <div className="col-md-8 styled-input">
               <label htmlFor="inputname4" className="form-label">
                 Name
               </label>
@@ -79,11 +79,12 @@ const Profile = () => {
                 className="form-control"
                 id="inputname4"
                 placeholder="Enter Your Name:"
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 readOnly
                 value={name}
               />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-8 styled-input">
               <label htmlFor="inputemail4" className="form-label">
                 Email
               </label>
@@ -92,11 +93,12 @@ const Profile = () => {
                 className="form-control"
                 id="inputemail4"
                 placeholder="Enter Your Email:"
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 readOnly
                 value={email}
               />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-8 styled-input">
               <label htmlFor="inputpassword4" className="form-label">
                 Password
               </label>
@@ -106,6 +108,7 @@ const Profile = () => {
                 id="inputpassword4"
                 placeholder="Enter Your Password:"
                 readOnly
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 value={password}
               />
             </div>
@@ -115,11 +118,11 @@ const Profile = () => {
               <Link to={
                 `/edit/${id}`
               }
-                className="btn btn-success" >
+                className="btn btn-outline-light" >
                 <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                 Edit Profile
               </Link>
-              <button className="btn btn-danger ms-2" onClick={handleOpen}>
+              <button className="btn btn-outline-light ms-2" onClick={handleOpen}>
                 <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
                 Delete Account
               </button>

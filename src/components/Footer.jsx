@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="text-center text-lg-start text-muted" style={{ backgroundColor: "#2B6356", color: '#fff' }}>
+    <footer className="text-center text-lg-start text-muted" style={{ backgroundColor: "rgba(0,0,0,.4)", color: '#fff' }}>
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style={{ color: '#fff' }}>
         <div className="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
@@ -28,10 +28,10 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-700 mb-4">
-                <i className="fas fa-gem me-3"></i>US-Store
+                <i className="fas fa-gem me-3"></i>US-Weather-App
               </h6>
               <p>
-                Explore US-Store, a practice project by Umar Raza, featuring the MERN stack. Shop seamlessly on our user-friendly platform, where technology meets learning!
+                Explore US-Weather-App, a practice project by Umar Raza, featuring the MERN stack. Shop seamlessly on our user-friendly platform, where technology meets learning!
               </p>
             </div>
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -81,12 +81,12 @@ const Footer = () => {
         </div>
       </section>
       <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)", color: "#fff" }}>
-        © All Rights Reserved. Powered by US-Store. Created by Umar Raza.
+        © All Rights Reserved. Powered by US-Weather-App. Created by Umar Raza.
       </div>
     </footer>
     // <div classNameName="div-expand-lg " style={{ width: '100%', backgroundColor: "#2B6356", padding: '10px' }}>
     //   <div classNameName="container-fluid" style={{ textAlign: 'center', color: '#fff' }}>
-    //     © All Rights Reserved. Powered by US-Store. Created by Umar Raza.
+    //     © All Rights Reserved. Powered by US-Weather-App. Created by Umar Raza.
     //   </div>
     // </div>
   )
