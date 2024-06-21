@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ReviewSlider from "../components/reviewsSlider";
+import Weather from '../components/Weather';
 
 const Home = () => {
     useEffect(() => {
@@ -7,6 +8,7 @@ const Home = () => {
     })
     return (
         <>
+            <Weather />
             <ReviewSlider />
         </>
     )

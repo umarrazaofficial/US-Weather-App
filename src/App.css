@@ -80,7 +80,7 @@
   transform: translateX(-50%);
   width: 0%;
   height: 3px;
-  background-color: #333;
+  background-color: #fff;
   transition: width 0.3s ease-out;
   transform-origin: left;
 }

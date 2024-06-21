@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
@@ -6,10 +6,13 @@ import { toast } from "react-toastify";
 import Loading from "./loading";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Table from "./molecules/Table"
+import TableLayout from "./molecules/TableLayout"
+import { ActionBtnList } from "./molecules/ActionBtns/ActionBtns.styles";
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
@@ -34,8 +37,53 @@ const Users = () => {
       });
   }, [])
 
+  const actionBtns = (user) => (
+    <>
+      <ActionBtnList>
+        <li>
+          <Link to={{
+            pathname: `/edit/${user._id}`,
+            state: {
+              name: `${user?.name}`,
+              email: `${user?.email}`,
+              password: `${user?.password}`
+            },
+          }}
+            className="btn btn-sm btn-outline-light">
+            <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
+            Edit
+          </Link>
+        </li>
+        <li>
+          <Link
+            onClick={() => handleDelete(user._id)}
+            className="btn btn-sm btn-outline-light ms-2"
+          >
+            <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
+            Delete
+          </Link>
+        </li>
+      </ActionBtnList>
+    </>
+  );
+
+  const { product_rows, totalItems } = useMemo(() => ({
+    product_rows: users?.map((user) => [
+      user?.name || "------------",
+      user?.email || "------------",
+      '********' || "------------",
+      actionBtns(user),
+    ]),
+  }));
+  const columnNamess = [
+    `Name:`,
+    `Email:`,
+    `Password:`,
+    "Actions",
+  ];
+
   return (
-    <div className="container " style={{ paddingTop: "20px", paddingBottom: '40px', minHeight: '481px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }}>
+    <div style={{ paddingTop: "20px", paddingBottom: '40px', minHeight: '481px', backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }}>
       <div
         className="container styled-input"
         style={{ display: "flex", justifyContent: "space-between" }}
@@ -46,70 +94,27 @@ const Users = () => {
           <AddIcon style={{ fontSize: 22, marginRight: '3px' }} />
           Create User
         </Link>
-        <input
+        {/* <input
           className="form-control my-3"
           type="search"
           placeholder="Search"
           aria-label="Search"
           style={{ width: "30%", backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
           onChange={(e) => setSearch(e.target.value)}
-        />
+        /> */}
       </div>
-      <table className="table">
-        <thead style={{ backgroundColor: " rgba(0,0,0,.5)", color: '#fff' }}>
-          <tr >
-            <td>Name:</td>
-            <td>Email:</td>
-            <td>Password:</td>
-            <td>Action:</td>
-          </tr>
-        </thead>
 
+      <TableLayout
+      >
+        <Table
+          width={1024}
+          rowsData={product_rows}
+          // loading={loading}
+          columnNames={columnNamess}
+          noPadding
+        />
+      </TableLayout>
 
-
-
-        {loading ?
-          <Loading />
-          :
-          <tbody style={{ backgroundColor: " rgba(0,0,0,.4)", color: '#fff' }}>
-            {users?.filter((user) => {
-              return (
-                (search.toLowerCase() === "" ||
-                  (user.name && user.name.toLowerCase().includes(search)) ||
-                  (user.email && user.email.toLowerCase().includes(search)))
-              );
-            }).map((user, index) => (
-              <tr key={index}>
-                <td>{user?.name}</td>
-                <td>{user?.email}</td>
-                <td>{user?.password}</td>
-                <td>
-                  <Link to={{
-                    pathname: `/edit/${user._id}`,
-                    state: {
-                      name: `${user?.name}`,
-                      email: `${user?.email}`,
-                      password: `${user?.password}`
-                    },
-                  }}
-                    className="btn btn-sm btn-outline-light">
-                    <EditIcon style={{ fontSize: 22, paddingRight: '3px' }} />
-                    Edit
-                  </Link>
-                  <Link
-                    onClick={() => handleDelete(user._id)}
-                    className="btn btn-sm btn-outline-light ms-2"
-                  >
-                    <DeleteIcon style={{ fontSize: 22, paddingRight: '3px' }} />
-                    Delete
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        }
-
-      </table>
     </div>
   );
 };

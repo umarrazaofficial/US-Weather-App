@@ -66,7 +66,7 @@ const Navbar = (props) => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" to="/user">
+                    <Link className="nav-link" aria-current="page" to="/weatherupdates">
                       Weather Updates
                     </Link>
                   </li>
@@ -85,7 +85,7 @@ const Navbar = (props) => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" aria-current="page" to="/user">
+                      <Link className="nav-link" aria-current="page" to="/weatherupdates">
                         Weather Updates
                       </Link>
                     </li>

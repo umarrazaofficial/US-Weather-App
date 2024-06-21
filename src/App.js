@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Aboutus from './pages/Aboutus';
 import Thankforsignup from './components/Thankforsignup';
+import Weatherupdates from './pages/Weatherupdates';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/user" element={<Users />}/>
         <Route path="/edit/:Id" element={<Edit />}/>
         <Route path="/profile" element={<Profile />}/>
+        <Route path="/weatherupdates" element={<Weatherupdates />}/>
         <Route path="/thankforsignup" element={<Thankforsignup />}/>
         </Route>
         <Route path="/register" element={<Register />}/>

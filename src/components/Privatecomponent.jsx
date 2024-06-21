@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register'
 import Aboutus from '../pages/Aboutus';
 import Thankforsignup from './Thankforsignup';
+import Weatherupdates from '../pages/Weatherupdates';
 
 const Privatecomponent = () => {
   const [admin, setAdmin] = useState('');
@@ -30,6 +31,7 @@ const Privatecomponent = () => {
           <Route path="/edit/:Id" element={<Edit />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/weatherupdates" element={<Weatherupdates />} />
           <Route path="/thankforsignup" element={<Thankforsignup />} />
         </Routes>
     ) :

@@ -4,8 +4,8 @@ import ReactStars from "react-rating-stars-component";
 import axios from 'axios';
 
 const Reviewsslider = () => {
-    const [previousratings, setPreviousratings] = useState([]);
-    const [rating, setRating] = useState(4);
+    // const [previousratings, setPreviousratings] = useState([]);
+    // const [rating, setRating] = useState(4);
 
     const settings = {
         className: "review-slider",
@@ -33,29 +33,29 @@ const Reviewsslider = () => {
         ]
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const previousratings = await axios.get(`https://us-store-backend.vercel.app/api/getRating`);
-                setPreviousratings(previousratings?.data);
-                let totalRatings = 0;
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const previousratings = await axios.get(`https://us-store-backend.vercel.app/api/getRating`);
+    //             setPreviousratings(previousratings?.data);
+    //             let totalRatings = 0;
 
-                for (let index = 0; index < previousratings?.data.length; index++) {
-                    let rating = 0;
-                    rating = parseInt(previousratings?.data[index]?.ratings);
-                    if (!isNaN(rating)) {
-                        totalRatings += rating;
-                    }
-                }
+    //             for (let index = 0; index < previousratings?.data.length; index++) {
+    //                 let rating = 0;
+    //                 rating = parseInt(previousratings?.data[index]?.ratings);
+    //                 if (!isNaN(rating)) {
+    //                     totalRatings += rating;
+    //                 }
+    //             }
 
-                setRating(totalRatings / previousratings?.data?.length);
-            } catch (error) {
-                console.error('Error fetching data: ', error);
-            }
-        };
+    //             setRating(totalRatings / previousratings?.data?.length);
+    //         } catch (error) {
+    //             console.error('Error fetching data: ', error);
+    //         }
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
 
     return (
