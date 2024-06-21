@@ -25,6 +25,7 @@ const Profile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [location, setLocation] = useState('Does not Defined');
   const [id, setId] = useState('');
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -38,11 +39,12 @@ const Profile = () => {
       try {
         const authObject = JSON.parse(auth);
         setId(authObject._id);
-        const response = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${authObject._id}`);
+        const response = await axios.get(`https://us-weather-app-backend.vercel.app/api/getsingleaccount/${authObject._id}`);
         setLoading(false);
         setName(response.data?.name);
         setEmail(response.data?.email);
         setPassword(response.data?.password);
+        setLocation(response.data?.location);
         document.title = "US-Weather-App - Account Setting";
       } catch (error) {
         console.error('Error fetching data: ', error);
@@ -53,7 +55,7 @@ const Profile = () => {
 
   const handleDelete = async (id) => {
     setLoading(true);
-    await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
+    await axios.delete(`https://us-weather-app-backend.vercel.app/api/deleteUser/${id}`);
     setLoading(false);
     navigate('/login');
     window.location.reload(true);
@@ -66,7 +68,7 @@ const Profile = () => {
         :
         <>
           <div style={{ display: 'flex', alignItems: 'center', width: '50%' }} className='profile-div-1'>
-            <img src={accountSetting} style={{ width: '100%' }} draggable="false" />
+            <img src={accountSetting} style={{ width: '100%' }} draggable="false" alt='accountSetting' />
           </div>
           <div style={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className='profile-div-2'>
             <h2>Account Setting</h2>
@@ -110,6 +112,19 @@ const Profile = () => {
                 readOnly
                 style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                 value={password}
+              />
+            </div>
+            <div className="col-md-8 styled-input">
+              <label htmlFor="inputpassword4" className="form-label">
+                Location
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputpassword4"
+                readOnly
+                style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
+                value={location?.label}
               />
             </div>
 

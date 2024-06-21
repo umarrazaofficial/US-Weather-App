@@ -4,15 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../components/loading';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Registration from "../assets/registration.svg";
+import Search from '../components/Search/Search';
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [location, setLocation] = useState(null);
   const [password, setPassword] = useState("");
-  const state = { name: name, email: email, password: password };
+  const state = { name, email, password, location };
   const navigate = useNavigate();
-
+  console.log(location);
   useEffect(() => {
     document.title = "US-Weather-App - Register";
   })
@@ -21,7 +23,7 @@ const Signup = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("https://us-store-backend.vercel.app/api/createuser", state);
+      const response = await axios.post("https://us-weather-app-backend.vercel.app/api/createuser", state);
       if (response.data.name) {
         await localStorage.setItem('user', JSON.stringify({ email: response.data.email, password: response.data.password, _id: response.data._id, name: response.data.name, isAdmin: response.data.isAdmin }))
         setLoading(false);
@@ -42,7 +44,7 @@ const Signup = () => {
         :
         <>
           <div style={{ width: '50%' }} className="register-div-1">
-            <img src={Registration} style={{ width: '95%' }} draggable="false" />
+            <img src={Registration} style={{ width: '95%' }} draggable="false" alt='registration' />
           </div>
           <div style={{ width: '45%', display: 'flex', flexDirection: 'column', justifyContent: 'center', rowGap: '20px' }} className="register-div-2">
             <h1>Register</h1>
@@ -93,6 +95,12 @@ const Signup = () => {
                   style={{ backgroundColor: "rgba(0,0,0,.4)", color: "#fff" }}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+              </div>
+              <div className="col-md-8" style={{ color: "black" }}>
+                <label htmlFor="inputpassword4" className="form-label text-white">
+                  Location
+                </label>
+                <Search onSearchChange={(data) => { setLocation(data) }} />
               </div>
 
 

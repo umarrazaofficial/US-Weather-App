@@ -16,7 +16,7 @@ const Edit = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${Id}`);
+        const response = await axios.get(`https://us-weather-app-backend.vercel.app/api/getsingleaccount/${Id}`);
         setLoading(false);
         setDefaultname(response.data?.name);
         setDefaultemail(response.data?.email);
@@ -32,9 +32,11 @@ const Edit = () => {
 
 
   const navigate = useNavigate();
-  const state = { name: defaultname, email: defaultemail, password: defaultpassword }
+  const state = {
+    name: defaultname, email: defaultemail, password: defaultpassword,
+  }
   const handleEdit = async () => {
-    await axios.put(`https://us-store-backend.vercel.app/api/updateUser/${Id}`, state);
+    await axios.put(`https://us-weather-app-backend.vercel.app/api/updateUser/${Id}`, state);
     await navigate("/");
     window.location.reload(true);
   };
@@ -109,56 +111,6 @@ const Edit = () => {
     </div>
 
 
-
-
-    // <div className="container " style={{ marginTop: "100px", minHeight: '481px' }}>
-    //   <form className="row g-3" onSubmit={handleEdit}>
-    //     <div className="col-md-6">
-    //       <label for="inputname4" className="form-label">
-    //         Name
-    //       </label>
-    //       <input
-    //         type="text"
-    //         className="form-control"
-    //         id="inputname4"
-    //         placeholder="Enter Name:"
-    //         onChange={(e) => setDefaultname(e.target.value)}
-    //         value={defaultname}
-    //       />
-    //     </div>
-    //     <div className="col-md-6">
-    //       <label for="inputemail4" className="form-label">
-    //         Email
-    //       </label>
-    //       <input
-    //         type="email"
-    //         className="form-control"
-    //         id="inputemail4"
-    //         placeholder="Enter Email:"
-    //         onChange={(e) => setDefaultemail(e.target.value)}
-    //         value={defaultemail}
-    //       />
-    //     </div>
-    //     <div className="col-md-6">
-    //       <label for="inputnumber4" className="form-label">
-    //         Password
-    //       </label>
-    //       <input
-    //         type="text"
-    //         className="form-control"
-    //         id="inputnumber4"
-    //         placeholder="Enter Phone Number:"
-    //         onChange={(e) => setDefaultpassword(e.target.value)}
-    //         value={defaultpassword}
-    //       />
-    //     </div>
-    //     <div className="col-12">
-    //       <button type="submit" className="btn btn-secondary">
-    //         Save Changes
-    //       </button>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

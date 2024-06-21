@@ -15,7 +15,7 @@ const Users = () => {
   // const [search, setSearch] = useState("");
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://us-store-backend.vercel.app/api/deleteUser/${id}`);
+      await axios.delete(`https://us-weather-app-backend.vercel.app/api/deleteUser/${id}`);
       toast.success('User Deleted Successfully. Please Refresh the Page', { position: 'top-center' })
     } catch (error) {
       console.log(error.message);
@@ -27,7 +27,7 @@ const Users = () => {
   const [users, setUsers] = useState([])
   useEffect(() => {
     document.title = "US-Weather-App - Users";
-    axios.get('https://us-store-backend.vercel.app/api/getUser')
+    axios.get('https://us-weather-app-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);
         setLoading(false);

@@ -18,7 +18,7 @@ const Navbar = (props) => {
         const authObject = JSON.parse(auth);
         setAdmin(authObject.isAdmin)
         const id = authObject._id;
-        const response = await axios.get(`https://us-store-backend.vercel.app/api/getsingleaccount/${id}`);
+        const response = await axios.get(`https://us-weather-app-backend.vercel.app/api/getsingleaccount/${id}`);
         setUser(response.data);
       } catch (error) {
         console.error('Error fetching data: ', error);

@@ -163,8 +163,8 @@ const Weatherupdates = () => {
                 height: '100%',
                 margin: '0 auto',
                 marginTop: '30px',
+                marginBottom: '50px',
                 padding: '1rem 0 3rem',
-                marginBottom: '1rem',
                 borderRadius: {
                     xs: 'none',
                     sm: '1rem 1rem',
@@ -173,6 +173,7 @@ const Weatherupdates = () => {
                     xs: 'none',
                     sm: 'rgba(0,0,0, 0.5) 0px 10px 15px 1px, rgba(0,0,0, 0.5) 0px 4px 6px 1px',
                 },
+                backgroundColor: "rgba(0,0,0, 0.4)"
             }}
         >
             <Grid container columnSpacing={2}>

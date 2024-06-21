@@ -10,6 +10,7 @@ import {
     getTodayForecastWeather,
     getWeekForecastWeather,
 } from '../utilities/DataUtils';
+import axios from 'axios';
 
 const Weather = () => {
     const [todayWeather, setTodayWeather] = useState(null);
@@ -17,11 +18,11 @@ const Weather = () => {
     const [weekForecast, setWeekForecast] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    const searchChangeHandler = async (enteredData = {
+    const searchChangeHandler = async (location = {
         label: "Lahore, PK",
         value: "31.549722222 74.343611111"
     }) => {
-        const [latitude, longitude] = enteredData.value.split(' ');
+        const [latitude, longitude] = location?.value.split(' ');
 
         setIsLoading(true);
 
@@ -44,19 +45,29 @@ const Weather = () => {
             );
 
             setTodayForecast([...all_today_forecasts_list]);
-            setTodayWeather({ city: enteredData.label, ...todayWeatherResponse });
+            setTodayWeather({ city: location.label, ...todayWeatherResponse });
             setWeekForecast({
-                city: enteredData.label,
+                city: location.label,
                 list: all_week_forecasts_list,
             });
         } finally {
             setIsLoading(false);
         }
     };
+    const auth = localStorage.getItem('user');
 
     useEffect(() => {
-        searchChangeHandler();
-    }, [])
+        const fetchData = async () => {
+            try {
+                const authObject = JSON.parse(auth);
+                const response = await axios.get(`https://us-weather-app-backend.vercel.app/api/getsingleaccount/${authObject._id}`);
+                searchChangeHandler(response.data?.location);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+            }
+        };
+        fetchData();
+    }, []);
 
 
     let appContent = (
@@ -125,6 +136,7 @@ const Weather = () => {
                     xs: 'none',
                     sm: 'rgba(0,0,0, 0.5) 0px 10px 15px 1px, rgba(0,0,0, 0.5) 0px 4px 6px 1px',
                 },
+                backgroundColor: "rgba(0,0,0, 0.4)"
             }}
         >
             <Grid container columnSpacing={2}>
