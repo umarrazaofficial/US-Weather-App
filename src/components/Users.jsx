@@ -71,6 +71,7 @@ const Users = () => {
     product_rows: users?.map((user) => [
       user?.name || "------------",
       user?.email || "------------",
+      user?.location?.label || "---------",
       '********' || "------------",
       actionBtns(user),
     ]),
@@ -78,6 +79,7 @@ const Users = () => {
   const columnNamess = [
     `Name:`,
     `Email:`,
+    `Location:`,
     `Password:`,
     "Actions",
   ];
