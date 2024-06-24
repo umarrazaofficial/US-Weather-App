@@ -28,7 +28,7 @@ const Edit = () => {
     };
 
     fetchData();
-  }, []);
+  }, [Id]);
 
 
   const navigate = useNavigate();

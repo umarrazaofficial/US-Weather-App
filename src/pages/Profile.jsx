@@ -51,7 +51,7 @@ const Profile = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [auth]);
 
   const handleDelete = async (id) => {
     setLoading(true);

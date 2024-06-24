@@ -67,7 +67,7 @@ const Weather = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [auth]);
 
 
     let appContent = (

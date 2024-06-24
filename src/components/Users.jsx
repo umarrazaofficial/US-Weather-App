@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import { toast } from "react-toastify";
-import Loading from "./loading";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Table from "./molecules/Table"
@@ -11,7 +10,6 @@ import TableLayout from "./molecules/TableLayout"
 import { ActionBtnList } from "./molecules/ActionBtns/ActionBtns.styles";
 
 const Users = () => {
-  const [loading, setLoading] = useState(true);
   // const [search, setSearch] = useState("");
   const handleDelete = async (id) => {
     try {
@@ -30,7 +28,6 @@ const Users = () => {
     axios.get('https://us-weather-app-backend.vercel.app/api/getUser')
       .then(response => {
         setUsers(response.data);
-        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
@@ -111,7 +108,6 @@ const Users = () => {
         <Table
           width={1024}
           rowsData={product_rows}
-          // loading={loading}
           columnNames={columnNamess}
           noPadding
         />
