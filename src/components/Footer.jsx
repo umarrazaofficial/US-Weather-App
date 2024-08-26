@@ -18,7 +18,7 @@ const Footer = () => {
           <a href="https://www.linkedin.com/in/umar-raza-b99982246/" target='blank' className="me-4 text-reset">
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="https://github.com/UmarSanyara" target='blank' className="me-4 text-reset">
+          <a href="https://github.com/umarrazaofficial" target='blank' className="me-4 text-reset">
             <i className="fab fa-github"></i>
           </a>
         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/in/umar-raza-b99982246/" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Linkedin</a>
               </p>
               <p className='f-heading'>
-                <a href="https://github.com/UmarSanyara" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Github</a>
+                <a href="https://github.com/umarrazaofficial" target='blank' style={{ textDecoration: 'none' }} className="text-reset">Github</a>
               </p>
             </div>
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
